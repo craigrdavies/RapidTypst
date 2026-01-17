@@ -174,7 +174,7 @@ def hello_world():
     content: `// Professional Resume Template
 
 #set page(margin: (x: 1.5cm, y: 1.5cm))
-#set text(font: "New Computer Modern", size: 10pt)
+#set text(size: 10pt)
 
 #align(center)[
   #text(size: 24pt, weight: "bold")[Your Name]
