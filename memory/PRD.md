@@ -1,4 +1,4 @@
-# Typst Editor PRD
+# Rapid Typst PRD
 
 ## Original Problem Statement
 Build a Typst markup editor that allows users to enter Typst syntax and see a live preview. Export options for PDF, HTML, and DOCX. Full editor features including file management, undo/redo, and find/replace.
