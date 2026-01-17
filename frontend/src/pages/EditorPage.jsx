@@ -1072,6 +1072,20 @@ export default function EditorPage() {
     }
   };
 
+  const handleSelectTemplate = (template) => {
+    setContent(template.content);
+    setCurrentDoc(null);
+    setShowTemplateGallery(false);
+    toast.success(`Loaded "${template.name}" template`);
+  };
+
+  const templateCategories = ['All', ...new Set(templates.map((t) => t.category))];
+
+  const filteredTemplates =
+    selectedCategory === 'All'
+      ? templates
+      : templates.filter((t) => t.category === selectedCategory);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
