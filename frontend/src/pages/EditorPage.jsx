@@ -180,7 +180,7 @@ def hello_world():
   #text(size: 24pt, weight: "bold")[Your Name]
   
   #text(size: 10pt, fill: gray)[
-    your.email\@example.com | +1 (555) 123-4567 | City, Country
+    your.email#"@"example.com | +1 (555) 123-4567 | City, Country
   ]
   
   #link("https://linkedin.com/in/yourprofile")[LinkedIn] |
@@ -236,7 +236,7 @@ Results-driven software engineer with 5+ years of experience in full-stack devel
 
 == Projects
 
-*Open Source Contribution* | #link("https://github.com/project")[GitHub]
+*Open Source Contribution* - #link("https://github.com/project")[GitHub]
 - Contributed 50+ commits to popular data visualization library
 - Fixed critical performance bug affecting 10k+ users
 `,
