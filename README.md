@@ -170,15 +170,28 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 | Port already in use | Change port in uvicorn command or kill existing process |
 | CORS errors | Ensure backend is running on port 8001 |
 
-## 📋 Templates Included
+## 📋 Template Gallery
 
-- **Basic Document** — Simple formatting examples
-- **Resume / CV** — Professional resume layout
-- **Academic Paper** — Research paper format with citations
-- **Formal Letter** — Business correspondence
-- **Business Report** — Executive summary format
-- **Math Notes** — Equations, theorems, and proofs
-- **Code Documentation** — Technical documentation
+Start quickly with professionally designed templates:
+
+| Template | Description | Use Case |
+|----------|-------------|----------|
+| **Blank Document** | Empty canvas to start fresh | Any document |
+| **Basic Document** | Headings, lists, formatting examples | Learning Typst, general documents |
+| **Resume / CV** | Professional two-column layout with sections for experience, education, skills | Job applications |
+| **Academic Paper** | Research paper format with abstract, numbered sections, figure/table captions | Theses, journal submissions, research |
+| **Formal Letter** | Business letter with proper formatting, date, addresses | Official correspondence |
+| **Business Report** | Executive summary, KPI cards, data tables, recommendations | Quarterly reports, analysis |
+| **Math Notes** | Theorems, proofs, equations, trigonometric identities | Lecture notes, homework |
+| **Code Documentation** | API reference, code blocks, configuration tables | Technical docs, READMEs |
+
+### Adding Custom Templates
+
+Templates are stored as `.typ` files in `/backend/templates/`. To add your own:
+
+1. Create a new `.typ` file in the templates folder
+2. Add metadata to `/backend/templates/metadata.json`
+3. Restart the backend server
 
 ## 🤝 Contributing
 
