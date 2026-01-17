@@ -30,6 +30,15 @@ Build a Typst markup editor that allows users to enter Typst syntax and see a li
 - ✅ Status bar with line/character count
 - ✅ Toast notifications
 - ✅ Swiss design with Chivo, Public Sans, JetBrains Mono fonts
+- ✅ Template Gallery with 8 templates:
+  - Blank Document
+  - Basic Document (formatting examples)
+  - Resume/CV (professional layout)
+  - Academic Paper (research paper format)
+  - Formal Letter (business correspondence)
+  - Business Report (executive summary format)
+  - Math Notes (equations, theorems, proofs)
+  - Code Documentation (API docs, technical writing)
 
 ## Tech Stack
 - Backend: FastAPI + Python typst package + Typst CLI

@@ -1457,7 +1457,7 @@ export default function EditorPage() {
 
       {/* Status Bar */}
       <div className="status-bar" data-testid="status-bar">
-        <span>Typst Editor</span>
+        <span>Rapid Typst</span>
         <span className="mx-2">|</span>
         <span>{content.split('\n').length} lines</span>
         <span className="mx-2">|</span>

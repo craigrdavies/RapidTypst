@@ -145,7 +145,7 @@ def compile_typst_to_svg(content: str) -> tuple[bool, Optional[str], Optional[st
 # API Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Typst Editor API"}
+    return {"message": "Rapid Typst API"}
 
 
 # Document CRUD
