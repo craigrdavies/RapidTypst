@@ -473,6 +473,30 @@ export default function EditorPage() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" data-testid="help-menu-btn" className="h-8 gap-1">
+                Help
+                <ChevronDown className="h-3 w-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem asChild data-testid="about-menu-item">
+                <Link to="/about">
+                  <Info className="h-4 w-4 mr-2" />
+                  About Rapid Typst
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild data-testid="typst-docs-menu-item">
+                <a href="https://typst.app/docs" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Typst Documentation
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         <div className="toolbar-divider" />
