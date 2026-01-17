@@ -211,7 +211,7 @@ export default function AboutPage() {
             </p>
             <div className="flex justify-center gap-3">
               <a
-                href="https://github.com/craigdavies/rapid-typst"
+                href="https://github.com/craigrdavies/RapidTypst"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background font-medium rounded-sm hover:bg-foreground/90 transition-colors"
@@ -220,7 +220,7 @@ export default function AboutPage() {
                 Star on GitHub
               </a>
               <a
-                href="https://github.com/craigdavies/rapid-typst/issues"
+                href="https://github.com/craigrdavies/RapidTypst/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 border border-border font-medium rounded-sm hover:bg-secondary transition-colors"
@@ -269,7 +269,7 @@ export default function AboutPage() {
             </a>
             <span className="text-muted-foreground">•</span>
             <a
-              href="https://github.com/craigdavies/rapid-typst"
+              href="https://github.com/craigrdavies/RapidTypst"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"

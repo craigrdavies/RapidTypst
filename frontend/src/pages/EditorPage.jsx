@@ -526,7 +526,7 @@ export default function EditorPage() {
 
         <div className="toolbar-group">
           <a
-            href="https://github.com/craigdavies/rapid-typst"
+            href="https://github.com/craigrdavies/RapidTypst"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 h-8 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
