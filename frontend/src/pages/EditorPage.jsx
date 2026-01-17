@@ -48,6 +48,7 @@ import {
   HelpCircle,
   Info,
   ExternalLink,
+  Github,
 } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { githubLight } from '@uiw/codemirror-theme-github';
@@ -522,6 +523,19 @@ export default function EditorPage() {
         </div>
 
         <div className="flex-1" />
+
+        <div className="toolbar-group">
+          <a
+            href="https://github.com/craigdavies/rapid-typst"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 h-8 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            data-testid="github-link"
+          >
+            <Github className="h-4 w-4" />
+            <span className="hidden sm:inline">Star on GitHub</span>
+          </a>
+        </div>
 
         <div className="toolbar-group">
           <Button variant="ghost" size="sm" onClick={handleSaveDocument} data-testid="save-btn" className="h-8 gap-1">
