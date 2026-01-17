@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-01-17T09:16:11.321121",
+  "total_tests": 10,
+  "passed_tests": 10,
+  "success_rate": 100.0,
+  "test_details": [
+    {
+      "test": "API Health Check",
+      "success": true,
+      "details": "Status: 200, Message: Typst Editor API",
+      "timestamp": "2026-01-17T09:16:10.471556"
+    },
+    {
+      "test": "Create Document",
+      "success": true,
+      "details": "Created document ID: f5f093fd-31e6-4a4c-8c44-1d968bf349e2",
+      "timestamp": "2026-01-17T09:16:10.566951"
+    },
+    {
+      "test": "Get Document",
+      "success": true,
+      "details": "Retrieved document: Test Document 091610",
+      "timestamp": "2026-01-17T09:16:10.615103"
+    },
+    {
+      "test": "Update Document",
+      "success": true,
+      "details": "Updated document: Test Document 091610",
+      "timestamp": "2026-01-17T09:16:10.650396"
+    },
+    {
+      "test": "List Documents",
+      "success": true,
+      "details": "Found 1 documents",
+      "timestamp": "2026-01-17T09:16:10.684561"
+    },
+    {
+      "test": "Compile Typst",
+      "success": true,
+      "details": "Compilation success: True, Has HTML: True",
+      "timestamp": "2026-01-17T09:16:10.772708"
+    },
+    {
+      "test": "Export PDF",
+      "success": true,
+      "details": "Content-Type: application/pdf, Is PDF: True",
+      "timestamp": "2026-01-17T09:16:11.052879"
+    },
+    {
+      "test": "Export HTML",
+      "success": true,
+      "details": "Content-Type: text/html; charset=utf-8, Is HTML: True",
+      "timestamp": "2026-01-17T09:16:11.127633"
+    },
+    {
+      "test": "Export DOCX",
+      "success": true,
+      "details": "Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document, Is DOCX: True",
+      "timestamp": "2026-01-17T09:16:11.284449"
+    },
+    {
+      "test": "Delete Document",
+      "success": true,
+      "details": "Message: Document deleted",
+      "timestamp": "2026-01-17T09:16:11.320463"
+    }
+  ]
+}
