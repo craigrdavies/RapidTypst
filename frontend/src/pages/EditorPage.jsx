@@ -1511,6 +1511,77 @@ export default function EditorPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Template Gallery Dialog */}
+      <Dialog open={showTemplateGallery} onOpenChange={setShowTemplateGallery}>
+        <DialogContent className="max-w-4xl max-h-[85vh] flex flex-col" data-testid="template-gallery-dialog">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <LayoutTemplate className="h-5 w-5" />
+              Template Gallery
+            </DialogTitle>
+          </DialogHeader>
+
+          {/* Category Tabs */}
+          <div className="flex gap-2 border-b border-border pb-3">
+            {templateCategories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setSelectedCategory(category)}
+                data-testid={`template-category-${category.toLowerCase()}`}
+                className="h-8"
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+
+          {/* Template Grid */}
+          <ScrollArea className="flex-1 pr-4" data-testid="template-grid">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+              {filteredTemplates.map((template) => {
+                const IconComponent = template.icon;
+                return (
+                  <div
+                    key={template.id}
+                    onClick={() => handleSelectTemplate(template)}
+                    className="group cursor-pointer border border-border rounded-sm p-4 hover:border-accent hover:bg-accent/5 transition-all duration-200"
+                    data-testid={`template-${template.id}`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 bg-secondary rounded-sm group-hover:bg-accent/10 transition-colors">
+                        <IconComponent className="h-5 w-5 text-muted-foreground group-hover:text-accent" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-sm group-hover:text-accent transition-colors">
+                          {template.name}
+                        </h3>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                          {template.description}
+                        </p>
+                        <span className="inline-block mt-2 text-xs px-2 py-0.5 bg-secondary rounded-sm text-muted-foreground">
+                          {template.category}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollArea>
+
+          <DialogFooter className="border-t border-border pt-4">
+            <p className="text-xs text-muted-foreground flex-1">
+              Click a template to load it into the editor
+            </p>
+            <Button variant="outline" onClick={() => setShowTemplateGallery(false)}>
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
