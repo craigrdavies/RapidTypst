@@ -102,22 +102,75 @@ const typstLanguage = StreamLanguage.define({
   },
 });
 
-// Template definitions
-const templates = [
-  {
-    id: 'blank',
-    name: 'Blank Document',
-    description: 'Start with a clean slate',
-    icon: FileText,
-    category: 'Basic',
-    content: `// Start writing your Typst document here
+// Icon mapping for templates loaded from API
+const iconMap = {
+  FileText,
+  BookOpen,
+  Briefcase,
+  GraduationCap,
+  Mail,
+  FileBarChart,
+  Calculator,
+  Code,
+};
 
-= Untitled Document
+const defaultTypstContent = `// Welcome to Rapid Typst!
+// Start writing your document below
 
-Your content goes here...
-`,
-  },
-  {
+= My First Document
+
+This is a paragraph with *bold* and _italic_ text.
+
+== Section One
+
+Here's some content for the first section.
+
+- List item one
+- List item two
+- List item three
+
+== Section Two
+
+You can use math: $x^2 + y^2 = z^2$
+
+#align(center)[
+  #text(size: 16pt, weight: "bold")[Centered Text]
+]
+`;
+
+export default function EditorPage() {
+  const [content, setContent] = useState(defaultTypstContent);
+  const [preview, setPreview] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [documents, setDocuments] = useState([]);
+  const [currentDoc, setCurrentDoc] = useState(null);
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showFindReplace, setShowFindReplace] = useState(false);
+  const [findText, setFindText] = useState('');
+  const [replaceText, setReplaceText] = useState('');
+  const [newDocTitle, setNewDocTitle] = useState('');
+  const [showNewDocDialog, setShowNewDocDialog] = useState(false);
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [showTemplateGallery, setShowTemplateGallery] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [templates, setTemplates] = useState([]);
+  const [templatesLoading, setTemplatesLoading] = useState(false);
+  const [historyStack, setHistoryStack] = useState([defaultTypstContent]);
+  const [historyIndex, setHistoryIndex] = useState(0);
+  const editorRef = useRef(null);
+  const debounceRef = useRef(null);
+
+  // Load documents on mount
+  useEffect(() => {
+    loadDocuments();
+  }, []);
+
+  // Load templates when gallery is opened
+  useEffect(() => {
+    if (showTemplateGallery && templates.length === 0) {
+      loadTemplates();
+    }
+  }, [showTemplateGallery]);
     id: 'basic',
     name: 'Basic Document',
     description: 'Simple document with headings, lists, and text formatting',
