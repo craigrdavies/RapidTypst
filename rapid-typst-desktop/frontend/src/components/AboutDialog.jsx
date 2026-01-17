@@ -1,4 +1,4 @@
-import { X, Zap, ExternalLink } from 'lucide-react'
+import { X, Zap, ExternalLink, Coffee } from 'lucide-react'
 
 export default function AboutDialog({ onClose }) {
   return (
@@ -36,6 +36,20 @@ export default function AboutDialog({ onClose }) {
               <li>• Template gallery</li>
               <li>• Native file dialogs</li>
             </ul>
+          </div>
+
+          {/* Buy Me a Coffee */}
+          <div className="text-center mb-6">
+            <p className="text-sm text-gray-500 mb-3">Enjoying Rapid Typst? Consider supporting development:</p>
+            <a
+              href="https://buymeacoffee.com/YOUR_USERNAME"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFDD00] hover:bg-[#FFDD00]/90 text-black font-medium rounded-full transition-colors"
+            >
+              <Coffee className="w-4 h-4" />
+              Buy me a coffee
+            </a>
           </div>
 
           <div className="text-center">
