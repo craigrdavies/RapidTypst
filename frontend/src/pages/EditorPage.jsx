@@ -365,7 +365,7 @@ This paper presented [summary of contributions]. Future work includes [future di
     content: `// Formal Letter Template
 
 #set page(margin: (x: 2.5cm, y: 2cm))
-#set text(font: "New Computer Modern", size: 11pt)
+#set text(size: 11pt)
 #set par(justify: true)
 
 #align(right)[
