@@ -36,6 +36,14 @@ import {
   Menu,
   FileType,
   File,
+  LayoutTemplate,
+  GraduationCap,
+  Briefcase,
+  Mail,
+  FileBarChart,
+  BookOpen,
+  Code,
+  Calculator,
 } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { githubLight } from '@uiw/codemirror-theme-github';
