@@ -440,7 +440,7 @@ Your Title (if applicable)
     content: `// Business Report Template
 
 #set page(margin: 2cm)
-#set text(font: "New Computer Modern", size: 11pt)
+#set text(size: 11pt)
 #set heading(numbering: "1.1")
 #set par(justify: true)
 
