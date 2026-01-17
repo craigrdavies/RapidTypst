@@ -868,6 +868,8 @@ export default function EditorPage() {
   const [newDocTitle, setNewDocTitle] = useState('');
   const [showNewDocDialog, setShowNewDocDialog] = useState(false);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [showTemplateGallery, setShowTemplateGallery] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [historyStack, setHistoryStack] = useState([defaultTypstContent]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const editorRef = useRef(null);
