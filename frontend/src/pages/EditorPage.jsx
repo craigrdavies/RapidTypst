@@ -1253,6 +1253,17 @@ export default function EditorPage() {
             Save
           </Button>
 
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowTemplateGallery(true)}
+            data-testid="templates-btn"
+            className="h-8 gap-1"
+          >
+            <LayoutTemplate className="h-4 w-4" />
+            Templates
+          </Button>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="default" size="sm" data-testid="export-btn" className="h-8 gap-1">
