@@ -250,7 +250,7 @@ Results-driven software engineer with 5+ years of experience in full-stack devel
     content: `// Academic Paper Template
 
 #set page(margin: 2.5cm)
-#set text(font: "New Computer Modern", size: 11pt)
+#set text(size: 11pt)
 #set par(justify: true, leading: 0.65em)
 #set heading(numbering: "1.1")
 
