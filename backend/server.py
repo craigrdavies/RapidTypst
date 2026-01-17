@@ -170,6 +170,57 @@ async def root():
     return {"message": "Rapid Typst API"}
 
 
+# Template endpoints
+@api_router.get("/templates", response_model=List[TemplateMetadata])
+async def list_templates():
+    """Get list of all available templates"""
+    metadata_file = TEMPLATES_DIR / "metadata.json"
+    if not metadata_file.exists():
+        raise HTTPException(status_code=404, detail="Templates not found")
+    
+    with open(metadata_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    return data.get("templates", [])
+
+
+@api_router.get("/templates/{template_id}", response_model=TemplateContent)
+async def get_template(template_id: str):
+    """Get a specific template with its content"""
+    metadata_file = TEMPLATES_DIR / "metadata.json"
+    if not metadata_file.exists():
+        raise HTTPException(status_code=404, detail="Templates not found")
+    
+    with open(metadata_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # Find the template
+    template = None
+    for t in data.get("templates", []):
+        if t["id"] == template_id:
+            template = t
+            break
+    
+    if not template:
+        raise HTTPException(status_code=404, detail="Template not found")
+    
+    # Read the template content
+    template_file = TEMPLATES_DIR / template["filename"]
+    if not template_file.exists():
+        raise HTTPException(status_code=404, detail="Template file not found")
+    
+    content = template_file.read_text(encoding='utf-8')
+    
+    return TemplateContent(
+        id=template["id"],
+        name=template["name"],
+        description=template["description"],
+        icon=template["icon"],
+        category=template["category"],
+        content=content
+    )
+
+
 # Document CRUD
 @api_router.post("/documents", response_model=Document)
 async def create_document(doc: DocumentCreate):
