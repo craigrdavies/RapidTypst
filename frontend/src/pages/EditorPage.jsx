@@ -372,7 +372,7 @@ This paper presented [summary of contributions]. Future work includes [future di
   Your Name\\
   Your Address\\
   City, State ZIP\\
-  your.email\@example.com\\
+  your.email#"@"example.com\\
   +1 (555) 123-4567
 ]
 
