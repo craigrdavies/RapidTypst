@@ -18,6 +18,12 @@
   height: 100%;
   font-family: 'JetBrains Mono', monospace !important;
   font-size: 14px;
+  overflow: hidden;
+}
+
+.cm-editor .cm-scroller {
+  height: 100%;
+  overflow: auto;
 }
 
 .cm-editor .cm-content {
@@ -85,7 +91,7 @@
 
 /* File list sidebar */
 .file-sidebar {
-  width: 240px;
+  width: 200px;
   border-right: 1px solid #E4E4E7;
   background: #FAFAF9;
   display: flex;

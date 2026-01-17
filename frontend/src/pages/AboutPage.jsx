@@ -8,7 +8,7 @@ import {
   Search,
   LayoutTemplate,
   Zap,
-  Github,
+  ExternalLink,
   BookOpen,
   Code,
 } from 'lucide-react';
@@ -204,7 +204,7 @@ export default function AboutPage() {
         {/* Open Source / GitHub */}
         <section className="mb-16">
           <div className="bg-secondary/30 border border-border rounded-sm p-8 text-center">
-            <Github className="h-12 w-12 mx-auto mb-4 text-foreground" />
+            <ExternalLink className="h-12 w-12 mx-auto mb-4 text-foreground" />
             <h2 className="text-2xl font-bold mb-2">Open Source</h2>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Rapid Typst is free and open source. Star the repo to show your support and stay updated with new features!
@@ -216,7 +216,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background font-medium rounded-sm hover:bg-foreground/90 transition-colors"
               >
-                <Github className="h-5 w-5" />
+                <ExternalLink className="h-5 w-5" />
                 Star on GitHub
               </a>
               <a
@@ -274,7 +274,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
             >
-              <Github className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4" />
               GitHub
             </a>
             <span className="text-muted-foreground">•</span>

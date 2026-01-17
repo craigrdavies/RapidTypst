@@ -1,4 +1,5 @@
-// Start writing your Typst document here
+// Welcome to Rapid Typst!
+// Your Typst journey start's here...
 
 = Untitled Document
 

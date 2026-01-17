@@ -1,4 +1,5 @@
-// Basic Typst Document Template
+// Your Typst journey has to start somewhere...
+// A Basic Typst Document Template
 
 = Document Title
 

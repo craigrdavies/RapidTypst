@@ -49,6 +49,8 @@ import {
   Info,
   ExternalLink,
   Github,
+  Coffee,
+  Printer,
 } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { githubLight } from '@uiw/codemirror-theme-github';
@@ -58,7 +60,7 @@ import { history, historyKeymap, undo, redo } from '@codemirror/commands';
 import { keymap } from '@codemirror/view';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8001";
 const API = `${BACKEND_URL}/api`;
 
 // Simple Typst-like syntax highlighting
@@ -139,19 +141,54 @@ export default function EditorPage() {
   const editorRef = useRef(null);
   const debounceRef = useRef(null);
 
+  const loadDocuments = useCallback(async () => {
+    try {
+      const response = await axios.get(`${API}/documents`);
+      setDocuments(response.data);
+    } catch (error) {
+      console.error('Failed to load documents:', error);
+    }
+  }, []);
+
   // Load documents on mount
   useEffect(() => {
     loadDocuments();
-  }, []);
+  }, [loadDocuments]);
 
   // Load templates when gallery is opened
+  const loadTemplates = useCallback(async () => {
+    try {
+      setTemplatesLoading(true);
+      const response = await axios.get(`${API}/templates`);
+      setTemplates(response.data);
+    } catch (error) {
+      console.error('Failed to load templates:', error);
+      toast.error('Failed to load templates');
+    } finally {
+      setTemplatesLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     if (showTemplateGallery && templates.length === 0) {
       loadTemplates();
     }
-  }, [showTemplateGallery, templates.length]);
+  }, [showTemplateGallery, templates.length, loadTemplates]);
 
   // Compile preview on content change with debounce
+  const compilePreview = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post(`${API}/compile`, { content });
+      setPreview(response.data.html || '');
+    } catch (error) {
+      console.error('Compile error:', error);
+      setPreview(`<div style="color: #DC2626; padding: 20px;">Failed to compile: ${error.message}</div>`);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [content]);
+
   useEffect(() => {
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
@@ -165,42 +202,7 @@ export default function EditorPage() {
         clearTimeout(debounceRef.current);
       }
     };
-  }, [content]);
-
-  const loadDocuments = async () => {
-    try {
-      const response = await axios.get(`${API}/documents`);
-      setDocuments(response.data);
-    } catch (error) {
-      console.error('Failed to load documents:', error);
-    }
-  };
-
-  const loadTemplates = async () => {
-    try {
-      setTemplatesLoading(true);
-      const response = await axios.get(`${API}/templates`);
-      setTemplates(response.data);
-    } catch (error) {
-      console.error('Failed to load templates:', error);
-      toast.error('Failed to load templates');
-    } finally {
-      setTemplatesLoading(false);
-    }
-  };
-
-  const compilePreview = async () => {
-    try {
-      setIsLoading(true);
-      const response = await axios.post(`${API}/compile`, { content });
-      setPreview(response.data.html || '');
-    } catch (error) {
-      console.error('Compile error:', error);
-      setPreview(`<div style="color: #DC2626; padding: 20px;">Failed to compile: ${error.message}</div>`);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [content, compilePreview]);
 
   const handleContentChange = useCallback((value) => {
     setContent(value);
@@ -224,9 +226,9 @@ export default function EditorPage() {
     }
   };
 
-  const handleFindReplace = () => {
-    setShowFindReplace(!showFindReplace);
-  };
+  const handleFindReplace = useCallback(() => {
+    setShowFindReplace((prev) => !prev);
+  }, []);
 
   const handleReplace = () => {
     if (findText && replaceText) {
@@ -273,7 +275,7 @@ export default function EditorPage() {
     }
   };
 
-  const handleSaveDocument = async () => {
+  const handleSaveDocument = useCallback(async () => {
     if (currentDoc) {
       try {
         await axios.put(`${API}/documents/${currentDoc.id}`, { content });
@@ -286,7 +288,7 @@ export default function EditorPage() {
       setShowSaveDialog(true);
       setNewDocTitle('');
     }
-  };
+  }, [content, currentDoc, loadDocuments]);
 
   const saveAsNewDocument = async () => {
     if (!newDocTitle.trim()) {
@@ -354,6 +356,95 @@ export default function EditorPage() {
     }
   };
 
+  const escapeHtml = (value) => {
+    if (!value) return '';
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  };
+
+  const openPrintWindow = (html, title) => {
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+      toast.error('Popup blocked. Allow popups to print.');
+      return;
+    }
+
+    printWindow.document.open();
+    printWindow.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${title}</title>
+  <style>
+    body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; background: #fff; color: #111; }
+    pre { white-space: pre-wrap; word-break: break-word; font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; }
+    .preview-wrapper { display: flex; flex-direction: column; gap: 20px; }
+  </style>
+</head>
+<body>
+  ${html}
+</body>
+</html>`);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.onload = () => {
+      printWindow.print();
+    };
+  };
+
+  const handlePrintSource = () => {
+    const html = `<pre>${escapeHtml(content)}</pre>`;
+    openPrintWindow(html, 'Rapid Typst Markdown');
+  };
+
+  const handlePrintPreview = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post(`${API}/compile`, { content });
+      const html = response.data.html || '';
+      openPrintWindow(`<div class="preview-wrapper">${html}</div>`, 'Rapid Typst Preview');
+    } catch (error) {
+      toast.error(`Print preview failed: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePrintPdf = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post(
+        `${API}/export/pdf`,
+        { content, format: 'pdf' },
+        { responseType: 'blob' },
+      );
+      const blob = new Blob([response.data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const printWindow = window.open(url, '_blank');
+      if (!printWindow) {
+        toast.error('Popup blocked. Allow popups to print.');
+        window.URL.revokeObjectURL(url);
+        return;
+      }
+      const cleanup = () => window.URL.revokeObjectURL(url);
+      printWindow.addEventListener('load', () => {
+        printWindow.focus();
+        printWindow.print();
+      });
+      printWindow.addEventListener('afterprint', cleanup);
+      setTimeout(cleanup, 10000);
+    } catch (error) {
+      toast.error(`Print PDF failed: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleSelectTemplate = async (template) => {
     try {
       const response = await axios.get(`${API}/templates/${template.id}`);
@@ -391,7 +482,7 @@ export default function EditorPage() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [content, currentDoc]);
+  }, [handleSaveDocument, handleFindReplace, handleFind]);
 
   return (
     <div className="editor-container h-screen flex flex-col" data-testid="editor-page">
@@ -443,6 +534,19 @@ export default function EditorPage() {
               <DropdownMenuItem onClick={() => handleExport('docx')} data-testid="export-docx-menu-item">
                 <FileText className="h-4 w-4 mr-2" />
                 Export as DOCX
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handlePrintSource} data-testid="print-source-menu-item">
+                <Printer className="h-4 w-4 mr-2" />
+                Print Markdown
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handlePrintPreview} data-testid="print-preview-menu-item">
+                <Printer className="h-4 w-4 mr-2" />
+                Print Preview
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handlePrintPdf} data-testid="print-pdf-menu-item">
+                <Printer className="h-4 w-4 mr-2" />
+                Print PDF
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -535,6 +639,16 @@ export default function EditorPage() {
             <Github className="h-4 w-4" />
             <span className="hidden sm:inline">Star on GitHub</span>
           </a>
+          <a
+            href="https://buymeacoffee.com/craigdavies"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 h-8 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            data-testid="buymeacoffee-link"
+          >
+            <Coffee className="h-4 w-4" />
+            <span className="hidden sm:inline">Buy me a coffee</span>
+          </a>
         </div>
 
         <div className="toolbar-group">
@@ -617,17 +731,18 @@ export default function EditorPage() {
         {/* Editor and Preview */}
         <ResizablePanelGroup direction="horizontal" className="flex-1">
           <ResizablePanel defaultSize={50} minSize={30}>
-            <div className="h-full flex flex-col">
+            <div className="h-full flex flex-col min-h-0">
               <div className="h-8 bg-secondary/50 border-b border-border flex items-center px-3 gap-2">
                 <FileCode className="h-4 w-4 text-muted-foreground" />
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Editor</span>
                 {currentDoc && <span className="text-xs text-muted-foreground ml-2">— {currentDoc.title}</span>}
               </div>
-              <div className="flex-1 overflow-hidden" data-testid="code-editor">
+              <div className="flex-1 min-h-0 overflow-hidden" data-testid="code-editor">
                 <CodeMirror
                   ref={editorRef}
                   value={content}
                   height="100%"
+                  className="h-full"
                   theme={githubLight}
                   extensions={[typstLanguage, history(), search(), keymap.of([...historyKeymap, ...searchKeymap])]}
                   onChange={handleContentChange}

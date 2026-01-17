@@ -1,3 +1,4 @@
+// Made with 💖 for Typst lovers 
 // Business Report Template
 
 #set page(margin: 2cm)
@@ -6,14 +7,14 @@
 #set par(justify: true)
 
 #align(center)[
-  #rect(fill: rgb("#1a1a2e"), width: 100%, inset: 2em)[
-    #text(fill: white, size: 24pt, weight: "bold")[
+  #rect(fill: rgb("#395a7f"), width: 100%, inset: 2em)[
+    #text(fill: white, size: 26pt, weight: "bold")[
       Quarterly Business Report
     ]
     
     #v(0.5em)
     
-    #text(fill: rgb("#cccccc"), size: 12pt)[
+    #text(fill: rgb("#cccccc"), weight: "semibold", size: 14pt)[
       Q4 2024 Performance Analysis
     ]
   ]
@@ -59,9 +60,9 @@ This report provides a comprehensive analysis of Q4 2024 performance. Key highli
     columns: 4,
     fill: (x, y) => if y == 0 { rgb("#f0f0f0") },
     [*Metric*], [*Q3 2024*], [*Q4 2024*], [*Change*],
-    [Total Revenue], [$2.1M], [$2.6M], [+23%],
+    [Total Revenue], [\$2.1M], [\$2.6M], [+23%],
     [Gross Margin], [42%], [45%], [+3pp],
-    [Operating Income], [$420K], [$585K], [+39%],
+    [Operating Income], [\$420K], [\$585K], [+39%],
   ),
   caption: [Quarterly Financial Summary]
 )
@@ -70,9 +71,9 @@ This report provides a comprehensive analysis of Q4 2024 performance. Key highli
 
 Operating expenses were managed effectively:
 
-- Personnel costs: $1.2M (46% of revenue)
-- Marketing spend: $320K (12% of revenue)
-- Technology infrastructure: $180K (7% of revenue)
+- Personnel costs: \$1.2M (46% of revenue)
+- Marketing spend: \$320K (12% of revenue)
+- Technology infrastructure: \$180K (7% of revenue)
 
 = Customer Metrics
 
@@ -81,25 +82,31 @@ Operating expenses were managed effectively:
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 1em,
-  rect(fill: rgb("#f5f5f5"), inset: 1em)[
-    #align(center)[
-      #text(size: 24pt, weight: "bold")[1,247]
-      
-      New Customers
+  [
+    #rect(fill: rgb("#f5f5f5"), inset: 1em)[
+      #align(center)[
+        #text(size: 24pt, weight: "bold")[1,247]
+        
+        New Customers
+      ]
     ]
   ],
-  rect(fill: rgb("#f5f5f5"), inset: 1em)[
-    #align(center)[
-      #text(size: 24pt, weight: "bold")[94%]
-      
-      Retention Rate
+  [
+    #rect(fill: rgb("#f5f5f5"), inset: 1em)[
+      #align(center)[
+        #text(size: 24pt, weight: "bold")[94%]
+        
+        Retention Rate
+      ]
     ]
   ],
-  rect(fill: rgb("#f5f5f5"), inset: 1em)[
-    #align(center)[
-      #text(size: 24pt, weight: "bold")[$2,340]
-      
-      Avg. Customer Value
+  [
+    #rect(fill: rgb("#f5f5f5"), inset: 1em)[
+      #align(center)[
+        #text(size: 24pt, weight: "bold")[\$2,340]
+        
+        Avg. Customer Value
+      ]
     ]
   ],
 )
@@ -108,7 +115,7 @@ Operating expenses were managed effectively:
 
 Based on our analysis, we recommend:
 
-+ *Expand digital marketing* - Allocate additional $50K to high-performing channels
++ *Expand digital marketing* - Allocate additional \$50K to high-performing channels
 + *Invest in customer success* - Hire 2 additional CSMs to maintain retention
 + *Optimize pricing* - Test premium tier pricing increase of 10%
 

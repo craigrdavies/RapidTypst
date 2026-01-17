@@ -4,14 +4,13 @@
 
 ### Create beautiful documents at the speed of thought
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-0047FF?style=for-the-badge)](https://typst-converter.preview.emergentagent.com)
 [![GitHub Stars](https://img.shields.io/github/stars/craigrdavies/RapidTypst?style=for-the-badge&logo=github&color=yellow)](https://github.com/craigrdavies/RapidTypst/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/craigdavies)
 
 A fast, modern web editor for [Typst](https://typst.app) — the new markup language that's simpler than LaTeX but just as powerful.
 
-**[Try Live Demo](https://typst-converter.preview.emergentagent.com)** · [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) · [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
+**Run locally for the best experience.** · [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) · [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
 
 ---
 
@@ -121,12 +120,6 @@ A fast, modern web editor for [Typst](https://typst.app) — the new markup lang
 </tr>
 </table>
 
-## 🚀 Live Demo
-
-**Try it now:** [https://typst-converter.preview.emergentagent.com](https://typst-converter.preview.emergentagent.com)
-
-No signup required. Start typing and see the magic!
-
 ## 🖼️ Screenshots
 
 <details>
@@ -155,10 +148,6 @@ Export your documents to PDF, HTML, or DOCX.
 </details>
 
 ## 🏃 Getting Started
-
-### Quick Start (Recommended)
-
-Just use the **[Live Demo](https://typst-converter.preview.emergentagent.com)** — no installation needed!
 
 ### Local Development Setup
 
@@ -199,16 +188,43 @@ typst --version
 <details>
 <summary><b>Step 2: Clone & Setup Backend</b></summary>
 
+### Windows (PowerShell)
+
+```powershell
+# Clone repository
+git clone https://github.com/craigrdavies/RapidTypst.git
+cd RapidTypst\backend
+
+# Create & activate venv
+python -m venv venv
+venv\Scripts\activate
+
+# Install dependencies
+python -m pip install -r requirements.txt
+
+# Configure environment
+@"
+MONGO_URL=mongodb://localhost:27017
+DB_NAME=rapid_typst
+"@ | Set-Content -NoNewline .env
+
+# Start backend (keep running)
+python -m uvicorn server:app --reload --host 0.0.0.0 --port 8001
+```
+
+### Linux / macOS (bash)
+
 ```bash
 # Clone repository
 git clone https://github.com/craigrdavies/RapidTypst.git
-cd RapidTypst
+cd RapidTypst/backend
 
-# Setup backend
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+# Create & activate venv
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+python -m pip install -r requirements.txt
 
 # Configure environment
 cat > .env << EOF
@@ -217,13 +233,31 @@ DB_NAME=rapid_typst
 EOF
 
 # Start backend (keep running)
-uvicorn server:app --reload --host 0.0.0.0 --port 8001
+python -m uvicorn server:app --reload --host 0.0.0.0 --port 8001
 ```
 
 </details>
 
 <details>
 <summary><b>Step 3: Setup Frontend</b></summary>
+
+### Windows (PowerShell)
+
+```powershell
+# New terminal window
+cd RapidTypst\frontend
+
+# Install dependencies
+npm install
+
+# Configure environment
+echo REACT_APP_BACKEND_URL=http://localhost:8001 > .env
+
+# Start frontend
+npm start
+```
+
+### Linux / macOS (bash)
 
 ```bash
 # New terminal window
