@@ -1136,6 +1136,10 @@ export default function EditorPage() {
                 <Plus className="h-4 w-4 mr-2" />
                 New Document
               </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setShowTemplateGallery(true)} data-testid="templates-menu-item">
+                <LayoutTemplate className="h-4 w-4 mr-2" />
+                Templates Gallery
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={handleSaveDocument} data-testid="save-doc-menu-item">
                 <Save className="h-4 w-4 mr-2" />
                 Save
