@@ -42,7 +42,7 @@ export default function AboutDialog({ onClose }) {
           <div className="text-center mb-6">
             <p className="text-sm text-gray-500 mb-3">Enjoying Rapid Typst? Consider supporting development:</p>
             <a
-              href="https://buymeacoffee.com/YOUR_USERNAME"
+              href="https://buymeacoffee.com/craigdavies"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFDD00] hover:bg-[#FFDD00]/90 text-black font-medium rounded-full transition-colors"

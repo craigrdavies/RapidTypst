@@ -209,7 +209,7 @@ export default function AboutPage() {
           
           {/* Buy Me a Coffee */}
           <a
-            href="https://buymeacoffee.com/YOUR_USERNAME"
+            href="https://buymeacoffee.com/craigdavies"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFDD00] hover:bg-[#FFDD00]/90 text-black font-medium rounded-full transition-colors mb-6"
