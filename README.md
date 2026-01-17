@@ -1,100 +1,182 @@
-# Rapid Typst
-
 <div align="center">
 
-![Rapid Typst](https://img.shields.io/badge/Rapid-Typst-0047FF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xNCAySDZhMiAyIDAgMCAwLTIgMnYxNmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWOHoiLz48cG9seWxpbmUgcG9pbnRzPSIxNCAyIDE0IDggMjAgOCIvPjxsaW5lIHgxPSIxNiIgeTE9IjEzIiB4Mj0iOCIgeTI9IjEzIi8+PGxpbmUgeDE9IjE2IiB5MT0iMTciIHgyPSI4IiB5Mj0iMTciLz48cG9seWxpbmUgcG9pbnRzPSIxMCA5IDkgOSA4IDkiLz48L3N2Zz4=)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://typst-converter.preview.emergentagent.com)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a-Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/craigdavies)
+# ⚡ Rapid Typst
 
-**A fast, modern web editor for the Typst markup language with live preview.**
+### Create beautiful documents at the speed of thought
 
-[Live Demo](https://typst-converter.preview.emergentagent.com) • [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) • [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
+[![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-0047FF?style=for-the-badge)](https://typst-converter.preview.emergentagent.com)
+[![GitHub Stars](https://img.shields.io/github/stars/craigrdavies/RapidTypst?style=for-the-badge&logo=github&color=yellow)](https://github.com/craigrdavies/RapidTypst/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/craigdavies)
 
-</div>
+A fast, modern web editor for [Typst](https://typst.app) — the new markup language that's simpler than LaTeX but just as powerful.
+
+**[Try Live Demo](https://typst-converter.preview.emergentagent.com)** · [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) · [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
 
 ---
 
-## ✨ Features
-
-### Editor
-- **Syntax Highlighting** — Full Typst syntax highlighting with CodeMirror
-- **Line Numbers** — Easy navigation with numbered lines
-- **Bracket Matching** — Automatic bracket and parenthesis matching
-- **Code Folding** — Collapse sections for better overview
-- **Multiple Selection** — Edit multiple locations simultaneously
-
-### Preview
-- **Live Preview** — Real-time document rendering as you type
-- **SVG Output** — Crisp, scalable preview at any zoom level
-- **Error Display** — Clear compilation error messages with line numbers
-
-### Export
-- **PDF Export** — Publication-ready PDF documents
-- **HTML Export** — Web-ready HTML with embedded styles
-- **DOCX Export** — Microsoft Word compatible documents
-
-### Document Management
-- **Save & Load** — Persistent document storage with MongoDB
-- **Document List** — Sidebar with all your saved documents
-- **Quick Delete** — Easy document cleanup
-
-### Productivity
-- **Template Gallery** — 8 pre-built templates for common document types
-- **Find & Replace** — Search and replace text across your document
-- **Undo/Redo** — Full history support
-- **Keyboard Shortcuts** — Familiar shortcuts (Ctrl+S, Ctrl+F, Ctrl+H)
-- **Status Bar** — Line count, character count, document name
-
-## 🖼️ Screenshots
-
-<div align="center">
-
-| Editor View | Template Gallery |
-|:-----------:|:----------------:|
-| ![Editor](https://via.placeholder.com/400x250/FAFAF9/18181B?text=Editor+View) | ![Templates](https://via.placeholder.com/400x250/FAFAF9/18181B?text=Template+Gallery) |
+![Rapid Typst Editor Screenshot](https://via.placeholder.com/900x500/FAFAF9/18181B?text=Rapid+Typst+Editor)
 
 </div>
 
+## 📑 Table of Contents
+
+- [Why Rapid Typst?](#-why-rapid-typst)
+- [Features](#-features)
+- [Live Demo](#-live-demo)
+- [Screenshots](#-screenshots)
+- [Getting Started](#-getting-started)
+- [Template Gallery](#-template-gallery)
+- [Keyboard Shortcuts](#-keyboard-shortcuts)
+- [Project Structure](#-project-structure)
+- [API Reference](#-api-reference)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [Support](#-support)
+- [License](#-license)
+
+## 🤔 Why Rapid Typst?
+
+### Typst vs LaTeX
+
+| Feature | Typst | LaTeX |
+|---------|-------|-------|
+| Learning curve | **Minutes** | Weeks/Months |
+| Compilation speed | **Instant** | Slow |
+| Error messages | **Clear & helpful** | Cryptic |
+| Modern syntax | **Yes** | No (1980s) |
+| Math support | **Excellent** | Excellent |
+| Package management | **Built-in** | Complex |
+
+### Why use Rapid Typst?
+
+- **No installation required** — Works in your browser
+- **Instant preview** — See changes as you type
+- **Export anywhere** — PDF, HTML, DOCX
+- **Templates included** — Start productive immediately
+- **Open source** — Free forever, customize as needed
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 📝 Editor
+- Typst syntax highlighting
+- Line numbers & code folding
+- Bracket matching & auto-close
+- Multiple cursors/selections
+- Find & replace with regex
+
+</td>
+<td width="50%">
+
+### 👁️ Live Preview
+- Real-time rendering
+- SVG output (crisp at any zoom)
+- Clear error messages
+- Page-by-page display
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📤 Export Options
+- **PDF** — Print-ready documents
+- **HTML** — Web publishing
+- **DOCX** — Word compatible
+
+</td>
+<td width="50%">
+
+### 💾 Document Management
+- Save to cloud database
+- Document list sidebar
+- Quick open & delete
+- Auto-save support
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📋 Templates
+- 8 professional templates
+- Resume, academic, business
+- Easy to customize
+- Add your own templates
+
+</td>
+<td width="50%">
+
+### ⚡ Productivity
+- Keyboard shortcuts
+- Status bar info
+- Resizable panels
+- Collapsible sidebar
+
+</td>
+</tr>
+</table>
+
 ## 🚀 Live Demo
 
-Try Rapid Typst now: **[https://typst-converter.preview.emergentagent.com](https://typst-converter.preview.emergentagent.com)**
+**Try it now:** [https://typst-converter.preview.emergentagent.com](https://typst-converter.preview.emergentagent.com)
 
-## 📖 What is Typst?
+No signup required. Start typing and see the magic!
 
-[Typst](https://typst.app) is a new markup-based typesetting system designed to be as powerful as LaTeX while being much easier to learn and use. It's perfect for:
+## 🖼️ Screenshots
 
-- Academic papers and theses
-- Resumes and CVs
-- Letters and reports
-- Technical documentation
-- Mathematical documents
+<details>
+<summary><b>Click to view screenshots</b></summary>
 
-## ⌨️ Keyboard Shortcuts
+### Main Editor
+Split-pane interface with editor on the left and live preview on the right.
 
-| Action | Shortcut |
-|--------|----------|
-| Save | `Ctrl + S` |
-| Find | `Ctrl + F` |
-| Find & Replace | `Ctrl + H` |
-| Undo | `Ctrl + Z` |
-| Redo | `Ctrl + Y` |
+![Editor View](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Editor+View)
 
-## 🛠️ Tech Stack
+### Template Gallery
+Choose from 8 professional templates to get started quickly.
 
-- **Frontend:** React, Tailwind CSS, CodeMirror, shadcn/ui
-- **Backend:** FastAPI (Python), Typst CLI
-- **Database:** MongoDB
+![Template Gallery](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Template+Gallery)
 
-## 🏃 Running Locally
+### Math Rendering
+Beautiful mathematical equations rendered in real-time.
 
-### Prerequisites
+![Math Preview](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Math+Rendering)
 
-- **Node.js** 18+ ([Download](https://nodejs.org/))
-- **Python** 3.9+ ([Download](https://python.org/))
-- **MongoDB** ([Download](https://www.mongodb.com/try/download/community) or use [MongoDB Atlas](https://www.mongodb.com/atlas))
-- **Typst CLI** ([Releases](https://github.com/typst/typst/releases))
+### Export Options
+Export your documents to PDF, HTML, or DOCX.
 
-### Step 1: Install Typst CLI
+![Export Menu](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Export+Options)
+
+</details>
+
+## 🏃 Getting Started
+
+### Quick Start (Recommended)
+
+Just use the **[Live Demo](https://typst-converter.preview.emergentagent.com)** — no installation needed!
+
+### Local Development Setup
+
+<details>
+<summary><b>Prerequisites</b></summary>
+
+| Requirement | Version | Download |
+|-------------|---------|----------|
+| Node.js | 18+ | [nodejs.org](https://nodejs.org/) |
+| Python | 3.9+ | [python.org](https://python.org/) |
+| MongoDB | 6+ | [mongodb.com](https://www.mongodb.com/try/download/community) |
+| Typst CLI | Latest | [GitHub Releases](https://github.com/typst/typst/releases) |
+| Yarn | 1.22+ | `npm install -g yarn` |
+
+</details>
+
+<details>
+<summary><b>Step 1: Install Typst CLI</b></summary>
 
 ```bash
 # macOS (Homebrew)
@@ -103,128 +185,269 @@ brew install typst
 # Windows (winget)
 winget install Typst.Typst
 
-# Linux (download binary)
+# Linux (manual)
 curl -LO https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz
 tar -xf typst-x86_64-unknown-linux-musl.tar.xz
 sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
 
-# Verify installation
+# Verify
 typst --version
 ```
 
-### Step 2: Clone Repository
+</details>
+
+<details>
+<summary><b>Step 2: Clone & Setup Backend</b></summary>
 
 ```bash
+# Clone repository
 git clone https://github.com/craigrdavies/RapidTypst.git
 cd RapidTypst
-```
 
-### Step 3: Backend Setup
-
-```bash
+# Setup backend
 cd backend
-
-# Create virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# Create environment file
+# Configure environment
 cat > .env << EOF
 MONGO_URL=mongodb://localhost:27017
 DB_NAME=rapid_typst
 EOF
 
-# Start backend server
+# Start backend (keep running)
 uvicorn server:app --reload --host 0.0.0.0 --port 8001
 ```
 
-### Step 4: Frontend Setup
+</details>
+
+<details>
+<summary><b>Step 3: Setup Frontend</b></summary>
 
 ```bash
-# Open new terminal, navigate to project
+# New terminal window
 cd RapidTypst/frontend
 
 # Install dependencies
 yarn install
 
-# Create environment file
+# Configure environment
 echo "REACT_APP_BACKEND_URL=http://localhost:8001" > .env
 
 # Start frontend
 yarn start
 ```
 
-### Step 5: Open App
+</details>
 
-Navigate to [http://localhost:3000](http://localhost:3000)
+<details>
+<summary><b>Step 4: Open App</b></summary>
 
-### Troubleshooting
+🎉 Open [http://localhost:3000](http://localhost:3000) and start creating!
 
-| Issue | Solution |
-|-------|----------|
-| MongoDB connection error | Ensure MongoDB is running: `mongod` or start MongoDB service |
-| Typst not found | Add Typst to PATH or reinstall |
-| Port already in use | Change port in uvicorn command or kill existing process |
-| CORS errors | Ensure backend is running on port 8001 |
+</details>
+
+<details>
+<summary><b>Troubleshooting</b></summary>
+
+| Problem | Solution |
+|---------|----------|
+| `MongoDB connection failed` | Start MongoDB: `mongod` or `brew services start mongodb-community` |
+| `typst: command not found` | Add Typst to PATH or reinstall |
+| `Port 8001 in use` | Kill process: `lsof -ti:8001 \| xargs kill` |
+| `CORS error` | Ensure backend runs on port 8001 |
+| `Module not found` | Run `pip install -r requirements.txt` again |
+
+</details>
 
 ## 📋 Template Gallery
 
-Start quickly with professionally designed templates:
-
-| Template | Description | Use Case |
-|----------|-------------|----------|
-| **Blank Document** | Empty canvas to start fresh | Any document |
-| **Basic Document** | Headings, lists, formatting examples | Learning Typst, general documents |
-| **Resume / CV** | Professional two-column layout with sections for experience, education, skills | Job applications |
-| **Academic Paper** | Research paper format with abstract, numbered sections, figure/table captions | Theses, journal submissions, research |
-| **Formal Letter** | Business letter with proper formatting, date, addresses | Official correspondence |
-| **Business Report** | Executive summary, KPI cards, data tables, recommendations | Quarterly reports, analysis |
-| **Math Notes** | Theorems, proofs, equations, trigonometric identities | Lecture notes, homework |
-| **Code Documentation** | API reference, code blocks, configuration tables | Technical docs, READMEs |
+| Template | Best For | Includes |
+|----------|----------|----------|
+| **📄 Blank** | Starting fresh | Empty document |
+| **📝 Basic Document** | Learning Typst | Headings, lists, formatting, links |
+| **💼 Resume / CV** | Job applications | Contact info, experience, education, skills |
+| **🎓 Academic Paper** | Research & theses | Abstract, sections, figures, tables, citations |
+| **✉️ Formal Letter** | Business correspondence | Letterhead, addresses, date, signature |
+| **📊 Business Report** | Corporate documents | Executive summary, KPIs, charts, recommendations |
+| **🔢 Math Notes** | STEM courses | Theorems, proofs, equations, identities |
+| **💻 Code Documentation** | Technical writing | API docs, code blocks, tables, examples |
 
 ### Adding Custom Templates
 
-Templates are stored as `.typ` files in `/backend/templates/`. To add your own:
+```bash
+# 1. Create your template
+echo '= My Template\n\nContent here...' > backend/templates/my-template.typ
 
-1. Create a new `.typ` file in the templates folder
-2. Add metadata to `/backend/templates/metadata.json`
-3. Restart the backend server
+# 2. Add to metadata.json
+{
+  "id": "my-template",
+  "name": "My Template",
+  "description": "Description here",
+  "icon": "FileText",
+  "category": "Custom",
+  "filename": "my-template.typ"
+}
+
+# 3. Restart backend
+```
+
+## ⌨️ Keyboard Shortcuts
+
+| Action | Windows/Linux | macOS |
+|--------|---------------|-------|
+| Save document | `Ctrl + S` | `⌘ + S` |
+| Find text | `Ctrl + F` | `⌘ + F` |
+| Find & replace | `Ctrl + H` | `⌘ + H` |
+| Undo | `Ctrl + Z` | `⌘ + Z` |
+| Redo | `Ctrl + Y` | `⌘ + Shift + Z` |
+| Select all | `Ctrl + A` | `⌘ + A` |
+
+## 📁 Project Structure
+
+```
+RapidTypst/
+├── backend/
+│   ├── server.py           # FastAPI application
+│   ├── requirements.txt    # Python dependencies
+│   ├── templates/          # Typst template files
+│   │   ├── metadata.json   # Template metadata
+│   │   ├── basic.typ
+│   │   ├── resume.typ
+│   │   └── ...
+│   └── .env               # Environment config
+├── frontend/
+│   ├── src/
+│   │   ├── App.js         # Main React app
+│   │   ├── pages/
+│   │   │   ├── EditorPage.jsx
+│   │   │   └── AboutPage.jsx
+│   │   └── components/    # UI components
+│   ├── package.json
+│   └── .env              # Frontend config
+└── README.md
+```
+
+## 🔌 API Reference
+
+<details>
+<summary><b>View API Endpoints</b></summary>
+
+### Documents
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/documents` | List all documents |
+| `GET` | `/api/documents/:id` | Get document by ID |
+| `POST` | `/api/documents` | Create new document |
+| `PUT` | `/api/documents/:id` | Update document |
+| `DELETE` | `/api/documents/:id` | Delete document |
+
+### Compilation
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/compile` | Compile Typst to HTML/SVG preview |
+| `POST` | `/api/export/pdf` | Export as PDF |
+| `POST` | `/api/export/html` | Export as HTML |
+| `POST` | `/api/export/docx` | Export as DOCX |
+
+### Templates
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/templates` | List all templates |
+| `GET` | `/api/templates/:id` | Get template content |
+
+</details>
+
+## 🗺️ Roadmap
+
+- [x] Core editor with syntax highlighting
+- [x] Live preview
+- [x] PDF/HTML/DOCX export
+- [x] Template gallery
+- [x] Document save/load
+- [x] Find & replace
+- [ ] **Dark theme**
+- [ ] **Auto-save**
+- [ ] **Vim/Emacs key bindings**
+- [ ] **Collaborative editing**
+- [ ] **Desktop app (Tauri)** — Coming soon!
+- [ ] **Custom fonts upload**
+- [ ] **Image upload**
+- [ ] **Version history**
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
+Contributions make the open source community amazing! Any contributions you make are **greatly appreciated**.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+### Ideas for Contributions
+
+- 🐛 Bug fixes
+- 📝 New templates
+- 🌍 Translations
+- 📖 Documentation improvements
+- ✨ New features from the roadmap
 
 ## ☕ Support
 
-If Rapid Typst helps you create documents faster, consider supporting development:
+<div align="center">
 
-<a href="https://buymeacoffee.com/craigdavies" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
+If Rapid Typst saves you time, consider buying me a coffee!
+
+<a href="https://buymeacoffee.com/craigdavies">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60">
 </a>
+
+**Other ways to support:**
+- ⭐ Star this repository
+- 🐛 Report bugs
+- 💡 Suggest features
+- 📢 Share with others
+
+</div>
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## 🔗 Links
+```
+MIT License
 
-- [Typst Documentation](https://typst.app/docs)
-- [Typst GitHub](https://github.com/typst/typst)
-- [Report Issues](https://github.com/craigrdavies/RapidTypst/issues)
+Copyright (c) 2025 Craig Davies
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
+
+## 🙏 Acknowledgments
+
+- [Typst](https://typst.app) — The amazing markup language
+- [CodeMirror](https://codemirror.net/) — Powerful code editor
+- [FastAPI](https://fastapi.tiangolo.com/) — Modern Python web framework
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
+- [shadcn/ui](https://ui.shadcn.com/) — Beautiful UI components
+- [Lucide Icons](https://lucide.dev/) — Clean icon set
 
 ---
 
 <div align="center">
 
+**[⬆ Back to Top](#-rapid-typst)**
+
 Made with ❤️ by [Craig Davies](https://github.com/craigrdavies)
+
+<sub>If you found this project helpful, please consider giving it a ⭐</sub>
 
 </div>
