@@ -16,14 +16,34 @@
 
 ## ✨ Features
 
-- **📝 Full-Featured Editor** — Syntax highlighting, line numbers, and bracket matching powered by CodeMirror
-- **👁️ Live Preview** — See your document rendered in real-time as you type
-- **📤 Multiple Export Formats** — Export to PDF, HTML, or DOCX
-- **📁 Document Management** — Save, load, and organize your documents
-- **📋 Template Gallery** — Start quickly with pre-built templates for resumes, academic papers, letters, and more
-- **🔍 Find & Replace** — Powerful search and replace functionality
-- **⌨️ Keyboard Shortcuts** — Familiar shortcuts for efficient editing
-- **💾 Auto-persistence** — Documents saved to your browser/database
+### Editor
+- **Syntax Highlighting** — Full Typst syntax highlighting with CodeMirror
+- **Line Numbers** — Easy navigation with numbered lines
+- **Bracket Matching** — Automatic bracket and parenthesis matching
+- **Code Folding** — Collapse sections for better overview
+- **Multiple Selection** — Edit multiple locations simultaneously
+
+### Preview
+- **Live Preview** — Real-time document rendering as you type
+- **SVG Output** — Crisp, scalable preview at any zoom level
+- **Error Display** — Clear compilation error messages with line numbers
+
+### Export
+- **PDF Export** — Publication-ready PDF documents
+- **HTML Export** — Web-ready HTML with embedded styles
+- **DOCX Export** — Microsoft Word compatible documents
+
+### Document Management
+- **Save & Load** — Persistent document storage with MongoDB
+- **Document List** — Sidebar with all your saved documents
+- **Quick Delete** — Easy document cleanup
+
+### Productivity
+- **Template Gallery** — 8 pre-built templates for common document types
+- **Find & Replace** — Search and replace text across your document
+- **Undo/Redo** — Full history support
+- **Keyboard Shortcuts** — Familiar shortcuts (Ctrl+S, Ctrl+F, Ctrl+H)
+- **Status Bar** — Line count, character count, document name
 
 ## 🖼️ Screenshots
 
