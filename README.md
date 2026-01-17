@@ -89,47 +89,86 @@ Try Rapid Typst now: **[https://typst-converter.preview.emergentagent.com](https
 
 ### Prerequisites
 
-- Node.js 18+
-- Python 3.9+
-- MongoDB
-- [Typst CLI](https://github.com/typst/typst/releases)
+- **Node.js** 18+ ([Download](https://nodejs.org/))
+- **Python** 3.9+ ([Download](https://python.org/))
+- **MongoDB** ([Download](https://www.mongodb.com/try/download/community) or use [MongoDB Atlas](https://www.mongodb.com/atlas))
+- **Typst CLI** ([Releases](https://github.com/typst/typst/releases))
 
-### Installation
+### Step 1: Install Typst CLI
 
 ```bash
-# Clone the repository
-git clone https://github.com/craigrdavies/RapidTypst.git
-cd RapidTypst
-
-# Install Typst CLI (macOS)
+# macOS (Homebrew)
 brew install typst
 
-# Or on Windows
+# Windows (winget)
 winget install Typst.Typst
 
-# Backend setup
+# Linux (download binary)
+curl -LO https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz
+tar -xf typst-x86_64-unknown-linux-musl.tar.xz
+sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
+
+# Verify installation
+typst --version
+```
+
+### Step 2: Clone Repository
+
+```bash
+git clone https://github.com/craigrdavies/RapidTypst.git
+cd RapidTypst
+```
+
+### Step 3: Backend Setup
+
+```bash
 cd backend
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 
-# Create .env file
-echo "MONGO_URL=mongodb://localhost:27017" > .env
-echo "DB_NAME=rapid_typst" >> .env
+# Create environment file
+cat > .env << EOF
+MONGO_URL=mongodb://localhost:27017
+DB_NAME=rapid_typst
+EOF
 
-# Start backend
-uvicorn server:app --reload --port 8001
+# Start backend server
+uvicorn server:app --reload --host 0.0.0.0 --port 8001
+```
 
-# Frontend setup (new terminal)
-cd frontend
+### Step 4: Frontend Setup
+
+```bash
+# Open new terminal, navigate to project
+cd RapidTypst/frontend
+
+# Install dependencies
 yarn install
 
-# Create .env file
+# Create environment file
 echo "REACT_APP_BACKEND_URL=http://localhost:8001" > .env
 
 # Start frontend
 yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+### Step 5: Open App
+
+Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| MongoDB connection error | Ensure MongoDB is running: `mongod` or start MongoDB service |
+| Typst not found | Add Typst to PATH or reinstall |
+| Port already in use | Change port in uvicorn command or kill existing process |
+| CORS errors | Ensure backend is running on port 8001 |
 
 ## 📋 Templates Included
 
