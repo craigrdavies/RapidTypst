@@ -74,6 +74,24 @@ class ExportRequest(BaseModel):
     format: str  # 'pdf', 'html', 'docx'
 
 
+class TemplateMetadata(BaseModel):
+    id: str
+    name: str
+    description: str
+    icon: str
+    category: str
+    filename: str
+
+
+class TemplateContent(BaseModel):
+    id: str
+    name: str
+    description: str
+    icon: str
+    category: str
+    content: str
+
+
 # Helper function to compile typst
 def compile_typst_to_pdf(content: str, output_path: Path) -> tuple[bool, Optional[str]]:
     """Compile typst content to PDF using the typst Python package"""
