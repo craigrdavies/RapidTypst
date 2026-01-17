@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Background with rounded corners -->
+  <rect width="1024" height="1024" rx="160" ry="160" fill="#0047FF"/>
+  
+  <!-- Subtle inner shadow/border -->
+  <rect x="16" y="16" width="992" height="992" rx="144" ry="144" fill="none" stroke="#0033CC" stroke-width="8"/>
+  
+  <!-- RT Text -->
+  <text x="512" y="580" 
+        font-family="Arial Black, Arial, sans-serif" 
+        font-size="460" 
+        font-weight="900" 
+        fill="white" 
+        text-anchor="middle"
+        letter-spacing="-20">RT</text>
+  
+  <!-- Subtle highlight line at top -->
+  <rect x="100" y="80" width="824" height="4" rx="2" fill="white" opacity="0.2"/>
+</svg>
