@@ -1,0 +1,140 @@
+{
+  "identity": {
+    "name": "Typst Editor E1",
+    "persona": "The Anti-AI Designer",
+    "archetype": "Swiss & High-Contrast",
+    "vibe": "Objective, Rigid, Functional, Paper-like"
+  },
+  "typography": {
+    "headings": {
+      "family": "Chivo, sans-serif",
+      "weights": ["700", "900"],
+      "usage": "Landing page headlines, modal titles, major section headers"
+    },
+    "body": {
+      "family": "Public Sans, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "UI elements, file lists, settings"
+    },
+    "code": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400", "500"],
+      "usage": "Editor content, code snippets"
+    },
+    "rules": [
+      "Headings must use tight tracking (tracking-tight)",
+      "Overlines must be uppercase with wide spacing (tracking-widest)",
+      "Line height: tight for headers, relaxed for body"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#FAFAF9",
+      "foreground": "#18181B",
+      "primary": "#000000",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#F4F4F5",
+      "secondary_foreground": "#18181B",
+      "accent": "#0047FF",
+      "accent_foreground": "#FFFFFF",
+      "muted": "#E4E4E7",
+      "muted_foreground": "#71717A",
+      "border": "#E4E4E7",
+      "input": "#E4E4E7",
+      "ring": "#0047FF"
+    },
+    "semantic": {
+      "editor_bg": "#FFFFFF",
+      "preview_bg": "#FFFFFF",
+      "selection": "#B4D5FE",
+      "error": "#FF3B30",
+      "success": "#34C759"
+    },
+    "gradients": {
+      "hero": "linear-gradient(135deg, #FAFAF9 0%, #E4E4E7 100%)",
+      "subtle_glow": "radial-gradient(circle at 50% 50%, rgba(0, 71, 255, 0.05), transparent 70%)"
+    }
+  },
+  "layout": {
+    "spacing_scale": ["0", "1", "2", "4", "6", "8", "12", "16", "24", "32", "48", "64"],
+    "container_padding": "p-6 md:p-8 lg:p-12",
+    "grid_system": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-12 gap-6",
+      "editor": "flex h-screen overflow-hidden"
+    },
+    "border_radius": {
+      "default": "rounded-none",
+      "button": "rounded-sm",
+      "card": "rounded-none"
+    }
+  },
+  "components": {
+    "buttons": {
+      "default": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 py-2 font-medium transition-all active:scale-95",
+      "ghost": "hover:bg-accent/10 hover:text-accent text-foreground rounded-sm px-4 py-2 transition-colors",
+      "outline": "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-sm px-6 py-2 transition-colors"
+    },
+    "cards": {
+      "style": "bg-card text-card-foreground border border-border shadow-sm rounded-none",
+      "hover": "hover:shadow-md transition-shadow duration-200"
+    },
+    "inputs": {
+      "style": "flex h-10 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    },
+    "toolbar": {
+      "style": "h-12 border-b border-border bg-background/80 backdrop-blur-md flex items-center px-4 gap-2 sticky top-0 z-50"
+    }
+  },
+  "visual_enhancers": {
+    "texture": "bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50",
+    "glassmorphism": "backdrop-blur-xl bg-white/70 border-b border-white/20",
+    "shadows": {
+      "sharp": "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+      "soft": "shadow-sm"
+    },
+    "animations": {
+      "hover_lift": "transition-transform duration-200 hover:-translate-y-1",
+      "fade_in": "animate-in fade-in duration-500"
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "background",
+        "url": "https://images.unsplash.com/photo-1761854149912-54ced79870ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHdoaXRlJTIwcGFwZXIlMjB0ZXh0dXJlJTIwbWluaW1hbGlzdHxlbnwwfHx8fDE3Njg2NDEwMDN8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract white wavy shapes for hero background or subtle overlay"
+      },
+      {
+        "category": "texture",
+        "url": "https://images.unsplash.com/photo-1736979110931-ac9c6fa82dbd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHdoaXRlJTIwcGFwZXIlMjB0ZXh0dXJlJTIwbWluaW1hbGlzdHxlbnwwfHx8fDE3Njg2NDEwMDN8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Paper texture for document background"
+      }
+    ],
+    "icons": "lucide-react"
+  },
+  "accessibility": {
+    "contrast": "Ensure 4.5:1 contrast ratio for normal text",
+    "focus_states": "Visible focus rings on all interactive elements",
+    "aria": "Use aria-labels for icon-only buttons"
+  },
+  "instructions_to_main_agent": [
+    "Use the 'Swiss & High-Contrast' archetype. Avoid gradients.",
+    "Implement a 'Split View' for the editor: Left for code, Right for preview.",
+    "Use 'Chivo' for headings and 'Public Sans' for UI text.",
+    "Use 'JetBrains Mono' for the code editor.",
+    "Apply a subtle noise texture to the background to mimic paper.",
+    "Use sharp borders (rounded-none or rounded-sm) for a professional tool look.",
+    "Ensure the toolbar is sticky and uses glassmorphism.",
+    "Use the provided image URLs for backgrounds where appropriate.",
+    "Do not use 'Inter' for headings.",
+    "Use 'sonner' for toast notifications.",
+    "Add data-testid to all interactive elements."
+  ],
+  "universal_guidelines": [
+    "Avoid generic centered layouts.",
+    "Create depth through z-index and subtle borders.",
+    "Do not use 'transition: all'.",
+    "Do not center align the app container.",
+    "Use micro-animations for interactions."
+  ]
+}
