@@ -1,0 +1,68 @@
+{
+  "templates": [
+    {
+      "id": "blank",
+      "name": "Blank Document",
+      "description": "Start with a clean slate",
+      "icon": "FileText",
+      "category": "Basic",
+      "filename": "blank.typ"
+    },
+    {
+      "id": "basic",
+      "name": "Basic Document",
+      "description": "Simple document with headings, lists, and text formatting",
+      "icon": "BookOpen",
+      "category": "Basic",
+      "filename": "basic.typ"
+    },
+    {
+      "id": "resume",
+      "name": "Resume / CV",
+      "description": "Professional resume template with sections for experience and skills",
+      "icon": "Briefcase",
+      "category": "Professional",
+      "filename": "resume.typ"
+    },
+    {
+      "id": "academic",
+      "name": "Academic Paper",
+      "description": "Research paper format with abstract, citations, and bibliography",
+      "icon": "GraduationCap",
+      "category": "Academic",
+      "filename": "academic.typ"
+    },
+    {
+      "id": "letter",
+      "name": "Formal Letter",
+      "description": "Business or formal letter template",
+      "icon": "Mail",
+      "category": "Professional",
+      "filename": "letter.typ"
+    },
+    {
+      "id": "report",
+      "name": "Business Report",
+      "description": "Professional report with executive summary and data sections",
+      "icon": "FileBarChart",
+      "category": "Professional",
+      "filename": "report.typ"
+    },
+    {
+      "id": "math",
+      "name": "Math Notes",
+      "description": "Mathematics document with equations and proofs",
+      "icon": "Calculator",
+      "category": "Academic",
+      "filename": "math.typ"
+    },
+    {
+      "id": "code-docs",
+      "name": "Code Documentation",
+      "description": "Technical documentation for code projects",
+      "icon": "Code",
+      "category": "Technical",
+      "filename": "code-docs.typ"
+    }
+  ]
+}
