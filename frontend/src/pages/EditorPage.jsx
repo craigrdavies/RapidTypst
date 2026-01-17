@@ -679,9 +679,8 @@ $ integral (2x + 1)/((x-1)(x+2)) dif x = integral 1/(x-1) dif x + integral 1/(x+
     content: `// Code Documentation Template
 
 #set page(margin: 2cm)
-#set text(font: "New Computer Modern", size: 11pt)
+#set text(size: 11pt)
 #set heading(numbering: "1.1")
-#set raw(theme: "assets/catppuccin-latte.tmTheme")
 
 #align(center)[
   #text(size: 28pt, weight: "bold")[Project Name]
