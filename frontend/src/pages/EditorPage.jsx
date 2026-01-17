@@ -576,7 +576,7 @@ Data was collected from:
     content: `// Mathematics Notes Template
 
 #set page(margin: 2cm)
-#set text(font: "New Computer Modern", size: 11pt)
+#set text(size: 11pt)
 #set heading(numbering: "1.1")
 #set math.equation(numbering: "(1)")
 
