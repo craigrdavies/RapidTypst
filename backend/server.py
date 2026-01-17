@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import json
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
@@ -32,6 +33,9 @@ api_router = APIRouter(prefix="/api")
 # Temp directory for typst files
 TEMP_DIR = Path(tempfile.gettempdir()) / "typst_editor"
 TEMP_DIR.mkdir(exist_ok=True)
+
+# Templates directory
+TEMPLATES_DIR = ROOT_DIR / "templates"
 
 
 # Define Models
