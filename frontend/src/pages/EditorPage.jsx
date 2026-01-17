@@ -102,33 +102,758 @@ const typstLanguage = StreamLanguage.define({
   },
 });
 
-const defaultTypstContent = `// Welcome to Typst Editor!
-// Start writing your document below
+// Template definitions
+const templates = [
+  {
+    id: 'blank',
+    name: 'Blank Document',
+    description: 'Start with a clean slate',
+    icon: FileText,
+    category: 'Basic',
+    content: `// Start writing your Typst document here
 
-= My First Document
+= Untitled Document
 
-This is a paragraph with *bold* and _italic_ text.
+Your content goes here...
+`,
+  },
+  {
+    id: 'basic',
+    name: 'Basic Document',
+    description: 'Simple document with headings, lists, and text formatting',
+    icon: BookOpen,
+    category: 'Basic',
+    content: `// Basic Typst Document Template
 
-== Section One
+= Document Title
 
-Here's some content for the first section.
+== Introduction
 
-- List item one
-- List item two
-- List item three
+This is a paragraph demonstrating *bold text*, _italic text_, and \`inline code\`.
 
-== Section Two
+You can also create links: #link("https://typst.app")[Typst Website]
 
-#lorem(50)
+== Lists
 
-=== Subsection
+=== Unordered List
+- First item
+- Second item
+  - Nested item
+  - Another nested item
+- Third item
 
-You can use math: $x^2 + y^2 = z^2$
+=== Ordered List
++ First step
++ Second step
++ Third step
+
+== Blockquotes
+
+#quote(block: true)[
+  This is a blockquote. It can contain multiple paragraphs and is useful for highlighting important information or citations.
+]
+
+== Code Blocks
+
+\`\`\`python
+def hello_world():
+    print("Hello, Typst!")
+\`\`\`
+
+== Conclusion
+
+#lorem(30)
+`,
+  },
+  {
+    id: 'resume',
+    name: 'Resume / CV',
+    description: 'Professional resume template with sections for experience and skills',
+    icon: Briefcase,
+    category: 'Professional',
+    content: `// Professional Resume Template
+
+#set page(margin: (x: 1.5cm, y: 1.5cm))
+#set text(font: "New Computer Modern", size: 10pt)
 
 #align(center)[
-  #text(size: 16pt, weight: "bold")[Centered Text]
+  #text(size: 24pt, weight: "bold")[Your Name]
+  
+  #text(size: 10pt, fill: gray)[
+    your.email\@example.com | +1 (555) 123-4567 | City, Country
+  ]
+  
+  #link("https://linkedin.com/in/yourprofile")[LinkedIn] |
+  #link("https://github.com/yourusername")[GitHub] |
+  #link("https://yourwebsite.com")[Portfolio]
 ]
-`;
+
+#line(length: 100%, stroke: 0.5pt + gray)
+
+== Professional Summary
+
+Results-driven software engineer with 5+ years of experience in full-stack development. Passionate about building scalable applications and mentoring junior developers.
+
+== Experience
+
+#grid(
+  columns: (1fr, auto),
+  [*Senior Software Engineer*], [Jan 2022 - Present],
+  [_Tech Company Inc._], [],
+)
+- Led development of microservices architecture serving 1M+ users
+- Reduced deployment time by 60% through CI/CD improvements
+- Mentored team of 4 junior developers
+
+#v(0.5em)
+
+#grid(
+  columns: (1fr, auto),
+  [*Software Engineer*], [Jun 2019 - Dec 2021],
+  [_Startup Co._], [],
+)
+- Built React-based dashboard used by 500+ enterprise clients
+- Implemented real-time data synchronization features
+- Collaborated with design team on UX improvements
+
+== Education
+
+#grid(
+  columns: (1fr, auto),
+  [*Bachelor of Science in Computer Science*], [2015 - 2019],
+  [_University Name_], [],
+)
+- GPA: 3.8/4.0
+- Relevant coursework: Algorithms, Database Systems, Machine Learning
+
+== Skills
+
+*Languages:* Python, JavaScript, TypeScript, Go, SQL
+
+*Frameworks:* React, Node.js, FastAPI, Django
+
+*Tools:* Docker, Kubernetes, AWS, Git, PostgreSQL
+
+== Projects
+
+*Open Source Contribution* | #link("https://github.com/project")[GitHub]
+- Contributed 50+ commits to popular data visualization library
+- Fixed critical performance bug affecting 10k+ users
+`,
+  },
+  {
+    id: 'academic',
+    name: 'Academic Paper',
+    description: 'Research paper format with abstract, citations, and bibliography',
+    icon: GraduationCap,
+    category: 'Academic',
+    content: `// Academic Paper Template
+
+#set page(margin: 2.5cm)
+#set text(font: "New Computer Modern", size: 11pt)
+#set par(justify: true, leading: 0.65em)
+#set heading(numbering: "1.1")
+
+#align(center)[
+  #text(size: 18pt, weight: "bold")[
+    Your Paper Title: A Comprehensive Study
+  ]
+  
+  #v(1em)
+  
+  #text(size: 12pt)[
+    Author Name#super[1], Co-Author Name#super[2]
+  ]
+  
+  #text(size: 10pt, fill: gray)[
+    #super[1]Department of Computer Science, University Name\\
+    #super[2]Research Institute, Organization Name
+  ]
+  
+  #v(1em)
+  
+  #text(size: 10pt, style: "italic")[
+    Published: January 2025
+  ]
+]
+
+#v(2em)
+
+#align(center)[
+  #rect(width: 85%, stroke: none)[
+    *Abstract*
+    
+    #text(size: 10pt)[
+      This paper presents a comprehensive study on [your topic]. We investigate [key aspects] and demonstrate [main findings]. Our results show that [key conclusion]. The implications of this research extend to [broader impact].
+    ]
+    
+    #v(0.5em)
+    
+    *Keywords:* keyword1, keyword2, keyword3, keyword4
+  ]
+]
+
+#v(2em)
+
+= Introduction
+
+The field of [your field] has seen significant advances in recent years. This paper addresses [problem statement] by proposing [your approach]. Our main contributions are:
+
++ Contribution one
++ Contribution two  
++ Contribution three
+
+The remainder of this paper is organized as follows: Section 2 reviews related work, Section 3 describes our methodology, Section 4 presents results, and Section 5 concludes.
+
+= Related Work
+
+Previous research in this area includes the work of Smith et al. @smith2023, who demonstrated [finding]. Additionally, Jones @jones2022 proposed [approach].
+
+= Methodology
+
+== Problem Formulation
+
+Let $x in RR^n$ be the input vector and $f: RR^n -> RR$ be the objective function. We seek to minimize:
+
+$ min_(x in RR^n) f(x) = sum_(i=1)^n (x_i - mu)^2 $
+
+== Proposed Approach
+
+Our algorithm proceeds as follows:
+
+#figure(
+  table(
+    columns: 2,
+    [*Step*], [*Description*],
+    [1], [Initialize parameters],
+    [2], [Compute gradients],
+    [3], [Update weights],
+    [4], [Check convergence],
+  ),
+  caption: [Algorithm steps]
+)
+
+= Results
+
+Our experiments demonstrate significant improvements over baseline methods.
+
+#figure(
+  table(
+    columns: 4,
+    [*Method*], [*Accuracy*], [*Precision*], [*Recall*],
+    [Baseline], [78.5%], [76.2%], [80.1%],
+    [Ours], [*92.3%*], [*91.5%*], [*93.1%*],
+  ),
+  caption: [Comparison of methods]
+)
+
+= Conclusion
+
+This paper presented [summary of contributions]. Future work includes [future directions].
+
+#pagebreak()
+
+#bibliography("references.bib", style: "ieee")
+`,
+  },
+  {
+    id: 'letter',
+    name: 'Formal Letter',
+    description: 'Business or formal letter template',
+    icon: Mail,
+    category: 'Professional',
+    content: `// Formal Letter Template
+
+#set page(margin: (x: 2.5cm, y: 2cm))
+#set text(font: "New Computer Modern", size: 11pt)
+#set par(justify: true)
+
+#align(right)[
+  Your Name\\
+  Your Address\\
+  City, State ZIP\\
+  your.email\@example.com\\
+  +1 (555) 123-4567
+]
+
+#v(1em)
+
+#datetime.today().display("[month repr:long] [day], [year]")
+
+#v(1em)
+
+Recipient Name\\
+Title/Position\\
+Company/Organization\\
+Address Line 1\\
+City, State ZIP
+
+#v(1em)
+
+Dear Mr./Ms. [Last Name],
+
+#v(0.5em)
+
+*Re: Subject of the Letter*
+
+#v(0.5em)
+
+I am writing to [state the purpose of your letter]. This letter is regarding [brief context].
+
+In the first paragraph, introduce yourself if necessary and clearly state the main purpose of your letter. Be direct and professional.
+
+The second paragraph should provide more details about your request, situation, or the information you need to convey. Include relevant facts, dates, and specifics that support your purpose.
+
+In subsequent paragraphs, you can:
+- Provide additional context or background
+- List specific requests or action items
+- Reference any enclosed documents
+- Address potential questions or concerns
+
+In your closing paragraph, summarize your main point, state what action you expect or hope for, and express appreciation for the recipient's time and attention.
+
+Thank you for your consideration. I look forward to your response. Please feel free to contact me at the phone number or email address above if you have any questions.
+
+#v(2em)
+
+Sincerely,
+
+#v(3em)
+
+Your Name\\
+Your Title (if applicable)
+
+#v(1em)
+
+#text(size: 9pt, fill: gray)[
+  Enclosures: [List any documents enclosed]\\
+  CC: [Names of anyone receiving copies]
+]
+`,
+  },
+  {
+    id: 'report',
+    name: 'Business Report',
+    description: 'Professional report with executive summary and data sections',
+    icon: FileBarChart,
+    category: 'Professional',
+    content: `// Business Report Template
+
+#set page(margin: 2cm)
+#set text(font: "New Computer Modern", size: 11pt)
+#set heading(numbering: "1.1")
+#set par(justify: true)
+
+#align(center)[
+  #rect(fill: rgb("#1a1a2e"), width: 100%, inset: 2em)[
+    #text(fill: white, size: 24pt, weight: "bold")[
+      Quarterly Business Report
+    ]
+    
+    #v(0.5em)
+    
+    #text(fill: rgb("#cccccc"), size: 12pt)[
+      Q4 2024 Performance Analysis
+    ]
+  ]
+]
+
+#v(1em)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 2em,
+  [
+    *Prepared by:* Analytics Team\\
+    *Date:* January 15, 2025
+  ],
+  [
+    *Department:* Business Intelligence\\
+    *Version:* 1.0
+  ]
+)
+
+#line(length: 100%, stroke: 0.5pt + gray)
+
+#v(1em)
+
+= Executive Summary
+
+This report provides a comprehensive analysis of Q4 2024 performance. Key highlights include:
+
+- Revenue increased by *23%* year-over-year
+- Customer acquisition cost decreased by *15%*
+- Net promoter score improved to *72* (up from 65)
+
+#rect(fill: rgb("#e8f4e8"), width: 100%, inset: 1em)[
+  *Key Recommendation:* Increase investment in digital marketing channels based on demonstrated ROI improvements.
+]
+
+= Financial Performance
+
+== Revenue Analysis
+
+#figure(
+  table(
+    columns: 4,
+    fill: (x, y) => if y == 0 { rgb("#f0f0f0") },
+    [*Metric*], [*Q3 2024*], [*Q4 2024*], [*Change*],
+    [Total Revenue], [$2.1M], [$2.6M], [+23%],
+    [Gross Margin], [42%], [45%], [+3pp],
+    [Operating Income], [$420K], [$585K], [+39%],
+  ),
+  caption: [Quarterly Financial Summary]
+)
+
+== Cost Analysis
+
+Operating expenses were managed effectively:
+
+- Personnel costs: $1.2M (46% of revenue)
+- Marketing spend: $320K (12% of revenue)
+- Technology infrastructure: $180K (7% of revenue)
+
+= Customer Metrics
+
+== Acquisition & Retention
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 1em,
+  rect(fill: rgb("#f5f5f5"), inset: 1em)[
+    #align(center)[
+      #text(size: 24pt, weight: "bold")[1,247]
+      
+      New Customers
+    ]
+  ],
+  rect(fill: rgb("#f5f5f5"), inset: 1em)[
+    #align(center)[
+      #text(size: 24pt, weight: "bold")[94%]
+      
+      Retention Rate
+    ]
+  ],
+  rect(fill: rgb("#f5f5f5"), inset: 1em)[
+    #align(center)[
+      #text(size: 24pt, weight: "bold")[$2,340]
+      
+      Avg. Customer Value
+    ]
+  ],
+)
+
+= Recommendations
+
+Based on our analysis, we recommend:
+
++ *Expand digital marketing* - Allocate additional $50K to high-performing channels
++ *Invest in customer success* - Hire 2 additional CSMs to maintain retention
++ *Optimize pricing* - Test premium tier pricing increase of 10%
+
+= Appendix
+
+== Methodology
+
+Data was collected from:
+- Internal CRM system
+- Financial reporting tools
+- Customer survey responses (n=523)
+
+== Glossary
+
+- *NPS:* Net Promoter Score
+- *CAC:* Customer Acquisition Cost
+- *LTV:* Lifetime Value
+`,
+  },
+  {
+    id: 'math',
+    name: 'Math Notes',
+    description: 'Mathematics document with equations and proofs',
+    icon: Calculator,
+    category: 'Academic',
+    content: `// Mathematics Notes Template
+
+#set page(margin: 2cm)
+#set text(font: "New Computer Modern", size: 11pt)
+#set heading(numbering: "1.1")
+#set math.equation(numbering: "(1)")
+
+= Calculus Notes: Integration Techniques
+
+== Fundamental Theorem of Calculus
+
+#rect(fill: rgb("#f0f8ff"), width: 100%, inset: 1em)[
+  *Theorem (FTC Part 1):* If $f$ is continuous on $[a, b]$, then the function
+  $ F(x) = integral_a^x f(t) dif t $
+  is continuous on $[a, b]$, differentiable on $(a, b)$, and $F'(x) = f(x)$.
+]
+
+#v(1em)
+
+#rect(fill: rgb("#f0f8ff"), width: 100%, inset: 1em)[
+  *Theorem (FTC Part 2):* If $f$ is continuous on $[a, b]$ and $F$ is any antiderivative of $f$, then
+  $ integral_a^b f(x) dif x = F(b) - F(a) $
+]
+
+== Integration by Parts
+
+The integration by parts formula is derived from the product rule:
+
+$ integral u dif v = u v - integral v dif u $
+
+*Example:* Evaluate $integral x e^x dif x$
+
+Let $u = x$ and $dif v = e^x dif x$. Then:
+- $dif u = dif x$
+- $v = e^x$
+
+Applying the formula:
+$ integral x e^x dif x = x e^x - integral e^x dif x = x e^x - e^x + C = e^x (x - 1) + C $
+
+== Trigonometric Substitutions
+
+For integrals involving $sqrt(a^2 - x^2)$, $sqrt(a^2 + x^2)$, or $sqrt(x^2 - a^2)$:
+
+#figure(
+  table(
+    columns: 3,
+    fill: (x, y) => if y == 0 { rgb("#f0f0f0") },
+    [*Expression*], [*Substitution*], [*Identity Used*],
+    [$sqrt(a^2 - x^2)$], [$x = a sin theta$], [$1 - sin^2 theta = cos^2 theta$],
+    [$sqrt(a^2 + x^2)$], [$x = a tan theta$], [$1 + tan^2 theta = sec^2 theta$],
+    [$sqrt(x^2 - a^2)$], [$x = a sec theta$], [$sec^2 theta - 1 = tan^2 theta$],
+  ),
+  caption: [Trigonometric Substitution Guide]
+)
+
+== Partial Fractions
+
+For rational functions where $deg(P) < deg(Q)$:
+
+$ (P(x))/(Q(x)) = A_1/(x - r_1) + A_2/(x - r_2) + ... $
+
+*Example:* Decompose $display((2x + 1)/((x-1)(x+2)))$
+
+$ (2x + 1)/((x-1)(x+2)) = A/(x-1) + B/(x+2) $
+
+Solving: $A = 1$, $B = 1$
+
+Therefore:
+$ integral (2x + 1)/((x-1)(x+2)) dif x = integral 1/(x-1) dif x + integral 1/(x+2) dif x = ln|x-1| + ln|x+2| + C $
+
+== Practice Problems
+
++ Evaluate $integral x^2 ln(x) dif x$
++ Find $integral 1/(x^2 + 4) dif x$
++ Compute $integral sin^3(x) cos^2(x) dif x$
++ Solve $integral (3x + 2)/(x^2 + x - 2) dif x$
+
+== Important Identities
+
+#grid(
+  columns: 2,
+  gutter: 2em,
+  [
+    *Pythagorean:*
+    - $sin^2 theta + cos^2 theta = 1$
+    - $tan^2 theta + 1 = sec^2 theta$
+    - $1 + cot^2 theta = csc^2 theta$
+  ],
+  [
+    *Double Angle:*
+    - $sin 2theta = 2 sin theta cos theta$
+    - $cos 2theta = cos^2 theta - sin^2 theta$
+    - $tan 2theta = (2 tan theta)/(1 - tan^2 theta)$
+  ]
+)
+`,
+  },
+  {
+    id: 'code-docs',
+    name: 'Code Documentation',
+    description: 'Technical documentation for code projects',
+    icon: Code,
+    category: 'Technical',
+    content: `// Code Documentation Template
+
+#set page(margin: 2cm)
+#set text(font: "New Computer Modern", size: 11pt)
+#set heading(numbering: "1.1")
+#set raw(theme: "assets/catppuccin-latte.tmTheme")
+
+#align(center)[
+  #text(size: 28pt, weight: "bold")[Project Name]
+  
+  #v(0.5em)
+  
+  #text(size: 12pt, fill: gray)[
+    Technical Documentation v1.0
+  ]
+]
+
+#v(1em)
+
+#outline(title: "Contents", indent: 1em)
+
+#pagebreak()
+
+= Introduction
+
+== Overview
+
+This document provides technical documentation for *Project Name*, a [brief description of what the project does].
+
+== Quick Start
+
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/username/project.git
+
+# Install dependencies
+npm install
+
+# Run the application
+npm start
+\`\`\`
+
+== Requirements
+
+- Node.js >= 18.0
+- npm >= 9.0
+- MongoDB >= 6.0
+
+= Architecture
+
+== System Overview
+
+The application follows a microservices architecture:
+
+#figure(
+  table(
+    columns: 3,
+    fill: (x, y) => if y == 0 { rgb("#f0f0f0") },
+    [*Service*], [*Port*], [*Description*],
+    [API Gateway], [8080], [Request routing and auth],
+    [User Service], [8081], [User management],
+    [Data Service], [8082], [Data processing],
+  ),
+  caption: [Service Architecture]
+)
+
+== Data Flow
+
++ Client sends request to API Gateway
++ Gateway authenticates and routes request
++ Service processes request
++ Response returned to client
+
+= API Reference
+
+== Authentication
+
+All API endpoints require authentication via Bearer token.
+
+#rect(fill: rgb("#fff3cd"), width: 100%, inset: 1em)[
+  *Note:* Tokens expire after 24 hours. Use the refresh endpoint to obtain new tokens.
+]
+
+=== POST /api/auth/login
+
+Authenticates a user and returns access token.
+
+*Request:*
+\`\`\`json
+{
+  "email": "user@example.com",
+  "password": "secretpassword"
+}
+\`\`\`
+
+*Response:*
+\`\`\`json
+{
+  "token": "eyJhbGciOiJIUzI1NiIs...",
+  "expiresIn": 86400
+}
+\`\`\`
+
+== Users
+
+=== GET /api/users
+
+Returns list of all users.
+
+*Headers:*
+- \`Authorization: Bearer <token>\`
+
+*Response:*
+\`\`\`json
+{
+  "users": [
+    {
+      "id": "123",
+      "email": "user@example.com",
+      "name": "John Doe"
+    }
+  ],
+  "total": 1
+}
+\`\`\`
+
+= Configuration
+
+== Environment Variables
+
+#figure(
+  table(
+    columns: 3,
+    fill: (x, y) => if y == 0 { rgb("#f0f0f0") },
+    [*Variable*], [*Required*], [*Description*],
+    [\`DATABASE_URL\`], [Yes], [MongoDB connection string],
+    [\`JWT_SECRET\`], [Yes], [Secret for JWT signing],
+    [\`PORT\`], [No], [Server port (default: 8080)],
+    [\`LOG_LEVEL\`], [No], [Logging level (default: info)],
+  ),
+  caption: [Environment Variables]
+)
+
+= Troubleshooting
+
+== Common Issues
+
+=== Connection Refused
+
+*Problem:* Cannot connect to database
+
+*Solution:*
++ Verify MongoDB is running
++ Check \`DATABASE_URL\` is correct
++ Ensure network connectivity
+
+=== Authentication Failed
+
+*Problem:* 401 Unauthorized response
+
+*Solution:*
++ Verify token is not expired
++ Check Authorization header format
++ Regenerate token if needed
+
+= Changelog
+
+== v1.0.0 (2025-01-15)
+
+- Initial release
+- User authentication
+- CRUD operations
+- API documentation
+`,
+  },
+];
+
+const defaultTypstContent = templates[1].content; // Use Basic Document as default
 
 export default function EditorPage() {
   const [content, setContent] = useState(defaultTypstContent);
