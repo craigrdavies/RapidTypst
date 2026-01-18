@@ -1,3 +1,4 @@
+
 $input_folder = "C:\Projects\RapidTypst\frontend\public\icons"
 
 
