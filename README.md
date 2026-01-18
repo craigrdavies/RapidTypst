@@ -2,9 +2,7 @@
 <p>
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
 <h1> Rapid Typst</h1>
-</p>
-
----
+</p><br />
 
 <h2> Create beautiful documents at the speed of thought</h2>
 
