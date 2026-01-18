@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:lockguides="true"
      inkscape:zoom="0.48339844"
-     inkscape:cx="510.96566"
-     inkscape:cy="512"
+     inkscape:cx="510.96565"
+     inkscape:cy="514.06868"
      inkscape:window-width="1366"
      inkscape:window-height="697"
      inkscape:window-x="-8"
@@ -67,13 +67,4 @@
      letter-spacing="-20"
      id="text2">RT</text>
   <!-- Subtle highlight line at top -->
-  <rect
-     x="100"
-     y="80"
-     width="824"
-     height="4"
-     rx="2"
-     fill="white"
-     opacity="0.2"
-     id="rect3" />
 </svg>
