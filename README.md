@@ -6,7 +6,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/craigrdavies/RapidTypst?style=for-the-badge&logo=github&color=yellow)](https://github.com/craigrdavies/RapidTypst/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/craigdavies)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/craigdavies)
 
 A fast, modern web editor for [Typst](https://typst.app) — the new markup language that's simpler than LaTeX but just as powerful.
 
