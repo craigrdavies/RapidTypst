@@ -1,5 +1,5 @@
 <div align="center">
-<p>
+<p style="display:inline-block">
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
 <h1> Rapid Typst</h1>
 </p>
