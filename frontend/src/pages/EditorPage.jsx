@@ -51,10 +51,28 @@ import {
   Github,
   Coffee,
   Printer,
+  Palette,
 } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
-import { githubLight } from '@uiw/codemirror-theme-github';
 import { StreamLanguage } from '@codemirror/language';
+import {
+  amy,
+  ayuLight,
+  barf,
+  bespin,
+  birdsOfParadise,
+  boysAndGirls,
+  clouds,
+  cobalt,
+  coolGlow,
+  dracula,
+  espresso,
+  noctisLilac,
+  rosePineDawn,
+  smoothy,
+  solarizedLight,
+  tomorrow,
+} from 'thememirror';
 import { searchKeymap, search, openSearchPanel } from '@codemirror/search';
 import { history, historyKeymap, undo, redo } from '@codemirror/commands';
 import { keymap } from '@codemirror/view';
@@ -97,6 +115,26 @@ const iconMap = {
   Code,
 };
 
+// Editor themes from ThemeMirror
+const editorThemes = [
+  { id: 'ayuLight', name: 'Ayu Light', theme: ayuLight, type: 'light' },
+  { id: 'clouds', name: 'Clouds', theme: clouds, type: 'light' },
+  { id: 'noctisLilac', name: 'Noctis Lilac', theme: noctisLilac, type: 'light' },
+  { id: 'rosePineDawn', name: 'Rosé Pine Dawn', theme: rosePineDawn, type: 'light' },
+  { id: 'solarizedLight', name: 'Solarized Light', theme: solarizedLight, type: 'light' },
+  { id: 'tomorrow', name: 'Tomorrow', theme: tomorrow, type: 'light' },
+  { id: 'amy', name: 'Amy', theme: amy, type: 'dark' },
+  { id: 'barf', name: 'Barf', theme: barf, type: 'dark' },
+  { id: 'bespin', name: 'Bespin', theme: bespin, type: 'dark' },
+  { id: 'birdsOfParadise', name: 'Birds of Paradise', theme: birdsOfParadise, type: 'dark' },
+  { id: 'boysAndGirls', name: 'Boys and Girls', theme: boysAndGirls, type: 'dark' },
+  { id: 'cobalt', name: 'Cobalt', theme: cobalt, type: 'dark' },
+  { id: 'coolGlow', name: 'Cool Glow', theme: coolGlow, type: 'dark' },
+  { id: 'dracula', name: 'Dracula', theme: dracula, type: 'dark' },
+  { id: 'espresso', name: 'Espresso', theme: espresso, type: 'dark' },
+  { id: 'smoothy', name: 'Smoothy', theme: smoothy, type: 'dark' },
+];
+
 const defaultTypstContent = `// Welcome to Rapid Typst!
 // Start writing your document below
 
@@ -138,6 +176,7 @@ export default function EditorPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [templates, setTemplates] = useState([]);
   const [templatesLoading, setTemplatesLoading] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(editorThemes[0]);
   const editorRef = useRef(null);
   const debounceRef = useRef(null);
 
@@ -657,6 +696,41 @@ export default function EditorPage() {
             Save
           </Button>
 
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" data-testid="theme-btn" className="h-8 gap-1">
+                <Palette className="h-4 w-4" />
+                <span className="hidden sm:inline">{currentTheme.name}</span>
+                <ChevronDown className="h-3 w-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="max-h-80 overflow-y-auto">
+              <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Light Themes</div>
+              {editorThemes.filter(t => t.type === 'light').map((themeOption) => (
+                <DropdownMenuItem
+                  key={themeOption.id}
+                  onClick={() => setCurrentTheme(themeOption)}
+                  className={currentTheme.id === themeOption.id ? 'bg-accent' : ''}
+                  data-testid={`theme-${themeOption.id}`}
+                >
+                  {themeOption.name}
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuSeparator />
+              <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Dark Themes</div>
+              {editorThemes.filter(t => t.type === 'dark').map((themeOption) => (
+                <DropdownMenuItem
+                  key={themeOption.id}
+                  onClick={() => setCurrentTheme(themeOption)}
+                  className={currentTheme.id === themeOption.id ? 'bg-accent' : ''}
+                  data-testid={`theme-${themeOption.id}`}
+                >
+                  {themeOption.name}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Button variant="outline" size="sm" onClick={() => setShowTemplateGallery(true)} data-testid="templates-btn" className="h-8 gap-1">
             <LayoutTemplate className="h-4 w-4" />
             Templates
@@ -743,7 +817,7 @@ export default function EditorPage() {
                   value={content}
                   height="100%"
                   className="h-full"
-                  theme={githubLight}
+                  theme={currentTheme.theme}
                   extensions={[typstLanguage, history(), search(), keymap.of([...historyKeymap, ...searchKeymap])]}
                   onChange={handleContentChange}
                   basicSetup={{
