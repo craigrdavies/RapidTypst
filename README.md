@@ -3,7 +3,10 @@
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
 <h1> Rapid Typst</h1>
 </p>
-### Create beautiful documents at the speed of thought
+
+---
+
+<h2> Create beautiful documents at the speed of thought</h2>
 
 [![GitHub Stars](https://img.shields.io/github/stars/craigrdavies/RapidTypst?style=for-the-badge&logo=github&color=yellow)](https://github.com/craigrdavies/RapidTypst/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
