@@ -406,30 +406,33 @@ export default function EditorPage() {
   };
 
   const openPrintWindow = (html, title) => {
-    const printWindow = window.open('', '_blank');
+    const printWindow = window.open('about:blank', '_blank');
     if (!printWindow) {
       toast.error('Popup blocked. Allow popups to print.');
       return;
     }
 
-    printWindow.document.open();
-    printWindow.document.write(`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${title}</title>
-  <style>
-    body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; background: #fff; color: #111; }
-    pre { white-space: pre-wrap; word-break: break-word; font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; }
-    .preview-wrapper { display: flex; flex-direction: column; gap: 20px; }
-  </style>
-</head>
-<body>
-  ${html}
-</body>
-</html>`);
-    printWindow.document.close();
+    const doc = printWindow.document;
+    doc.documentElement.lang = 'en';
+    
+    // Build head
+    const meta1 = doc.createElement('meta');
+    meta1.setAttribute('charset', 'UTF-8');
+    const meta2 = doc.createElement('meta');
+    meta2.setAttribute('name', 'viewport');
+    meta2.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    const titleEl = doc.createElement('title');
+    titleEl.textContent = title;
+    const style = doc.createElement('style');
+    style.textContent = `
+      body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; background: #fff; color: #111; }
+      pre { white-space: pre-wrap; word-break: break-word; font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; }
+      .preview-wrapper { display: flex; flex-direction: column; gap: 20px; }
+    `;
+    
+    doc.head.append(meta1, meta2, titleEl, style);
+    doc.body.innerHTML = html;
+    
     printWindow.focus();
     printWindow.onload = () => {
       printWindow.print();
