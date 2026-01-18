@@ -126,22 +126,22 @@ A fast, modern web editor for [Typst](https://typst.app) — the new markup lang
 ### Main Editor
 Split-pane interface with editor on the left and live preview on the right.
 
-![Editor View](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Editor+View)
+![Editor View](./docs/screenshots/Typst_Editor.jpg)
 
 ### Template Gallery
 Choose from 8 professional templates to get started quickly.
 
-![Template Gallery](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Template+Gallery)
+![Template Gallery](./docs/screenshots/Template_Gallery.jpg)
 
 ### Math Rendering
 Beautiful mathematical equations rendered in real-time.
 
-![Math Preview](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Math+Rendering)
+![Math Preview](./docs/screenshots/Maths_Output.jpg)
 
 ### Export Options
 Export your documents to PDF, HTML, or DOCX.
 
-![Export Menu](https://via.placeholder.com/800x450/FAFAF9/18181B?text=Export+Options)
+![Export Menu](./docs/screenshots/Export_Menu.jpg)
 
 </details>
 
