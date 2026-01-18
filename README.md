@@ -2,7 +2,8 @@
 <p>
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
 <h1> Rapid Typst</h1>
-</p><br />
+</p>
+<br />
 
 <h2> Create beautiful documents at the speed of thought</h2>
 
@@ -13,8 +14,6 @@
 A fast, modern web editor for [Typst](https://typst.app) — the new markup language that's simpler than LaTeX but just as powerful.
 
 **Run locally for the best experience.** · [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) · [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
-
----
 
 ![Rapid Typst Editor Screenshot](https://via.placeholder.com/900x500/FAFAF9/18181B?text=Rapid+Typst+Editor)
 
@@ -475,8 +474,6 @@ copies of the Software...
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
 - [shadcn/ui](https://ui.shadcn.com/) — Beautiful UI components
 - [Lucide Icons](https://lucide.dev/) — Clean icon set
-
----
 
 <div align="center">
 
