@@ -1,9 +1,6 @@
 <div align="center">
-<p style="display:inline-block">
-<img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
-<h1> Rapid Typst</h1>
-</p>
-<br />
+
+<h1><img src="./frontend/public/icons/48x48_trim.jpg" width="32" height="32" alt="logo" /> Rapid Typst</h1>
 
 <h2> Create beautiful documents at the speed of thought</h2>
 
