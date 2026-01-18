@@ -14,8 +14,6 @@ A fast, modern web editor for [Typst](https://typst.app) — the new markup lang
 
 **Run locally for the best experience.** · [Report Bug](https://github.com/craigrdavies/RapidTypst/issues) · [Request Feature](https://github.com/craigrdavies/RapidTypst/issues)
 
----
-
 ![Rapid Typst Editor Screenshot](https://via.placeholder.com/900x500/FAFAF9/18181B?text=Rapid+Typst+Editor)
 
 </div>
