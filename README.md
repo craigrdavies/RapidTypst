@@ -1,6 +1,6 @@
 <div align="center">
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
-# Rapid Typst
+<h1> Rapid Typst</h1>
 
 ---
 
