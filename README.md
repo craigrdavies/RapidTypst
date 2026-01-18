@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Rapid Typst
+# ![Rapid Typst](./frontend/public/icons/48x48_trim.jpg) Rapid Typst
 
 ### Create beautiful documents at the speed of thought
 
