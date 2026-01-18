@@ -1,9 +1,8 @@
 <div align="center">
+<p>
 <img src="./frontend/public/icons/48x48_trim.jpg" width="48px" height="48px"/>
 <h1> Rapid Typst</h1>
-
----
-
+</p>
 ### Create beautiful documents at the speed of thought
 
 [![GitHub Stars](https://img.shields.io/github/stars/craigrdavies/RapidTypst?style=for-the-badge&logo=github&color=yellow)](https://github.com/craigrdavies/RapidTypst/stargazers)
