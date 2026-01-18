@@ -163,6 +163,24 @@ Export your documents to PDF, HTML, or DOCX.
 </details>
 
 <details>
+<summary><b>⚡ Quick Start (Windows)</b></summary>
+
+After installing prerequisites, simply double-click `start.bat` or run:
+
+```powershell
+.\start.ps1
+```
+
+This automatically starts:
+- 🍃 MongoDB database
+- 🐍 Backend API server (port 8001)
+- ⚛️ Frontend dev server (port 3000)
+
+Then open [http://localhost:3000](http://localhost:3000)
+
+</details>
+
+<details>
 <summary><b>Step 1: Install Typst CLI</b></summary>
 
 ```bash
@@ -340,6 +358,8 @@ echo '= My Template\n\nContent here...' > backend/templates/my-template.typ
 
 ```
 RapidTypst/
+├── start.bat              # 🚀 Quick start (double-click)
+├── start.ps1              # PowerShell startup script
 ├── backend/
 │   ├── server.py           # FastAPI application
 │   ├── requirements.txt    # Python dependencies
