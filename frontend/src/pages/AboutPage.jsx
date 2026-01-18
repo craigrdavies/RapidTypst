@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import logo from '../icons/48x48_trim.jpg';
 import {
   ArrowLeft,
   FileText,
@@ -71,6 +72,7 @@ export default function AboutPage() {
             <Zap className="h-4 w-4" />
             Fast & Powerful
           </div>
+          <img src={logo} alt="Rapid Typst" className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-4">
             Rapid Typst
           </h1>
