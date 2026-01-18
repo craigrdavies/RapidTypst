@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1><img src="./frontend/public/icons/48x48_trim.jpg" width="32" height="32" alt="logo" align="center" /> Rapid Typst</h1>
+<h1><img src="./frontend/public/icons/48x48_trim.jpg" width="32" height="32" alt="logo" align="center" padding-bottom="5px" /> Rapid Typst</h1>
 
 <h2> Create beautiful documents at the speed of thought</h2>
 
