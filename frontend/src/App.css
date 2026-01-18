@@ -61,19 +61,48 @@
   min-height: 100%;
 }
 
-/* Toolbar styling */
+/* Toolbar styling - VS 2019 theme */
 .toolbar {
-  height: 48px;
-  border-bottom: 1px solid #E4E4E7;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
+  height: 52px;
+  border-bottom: none;
+  background: linear-gradient(180deg, #68217a 0%, #5c2d91 100%);
+  box-shadow: 0 2px 8px rgba(92, 45, 145, 0.3);
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 20px;
   gap: 8px;
   position: sticky;
   top: 0;
   z-index: 50;
+}
+
+.toolbar button,
+.toolbar a {
+  color: #f0e6f3 !important;
+}
+
+.toolbar button:hover,
+.toolbar a:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.toolbar [data-state="open"] > button {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+.toolbar button[data-testid="export-btn"] {
+  background: #b4009e !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(180, 0, 158, 0.4);
+  font-weight: 500;
+}
+
+.toolbar button[data-testid="export-btn"]:hover {
+  background: #c41aae !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(180, 0, 158, 0.5);
 }
 
 .toolbar-group {
@@ -84,9 +113,9 @@
 
 .toolbar-divider {
   width: 1px;
-  height: 24px;
-  background: #E4E4E7;
-  margin: 0 8px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 12px;
 }
 
 /* File list sidebar */
