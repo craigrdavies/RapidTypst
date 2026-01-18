@@ -921,7 +921,7 @@ export default function EditorPage() {
 
       {/* Template Gallery Dialog */}
       <Dialog open={showTemplateGallery} onOpenChange={setShowTemplateGallery}>
-        <DialogContent className="max-w-4xl max-h-[85vh] flex flex-col" data-testid="template-gallery-dialog">
+        <DialogContent className="max-w-4xl h-[85vh] flex flex-col overflow-hidden" data-testid="template-gallery-dialog">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <LayoutTemplate className="h-5 w-5" />
@@ -946,7 +946,7 @@ export default function EditorPage() {
           </div>
 
           {/* Template Grid */}
-          <ScrollArea className="flex-1 pr-4" data-testid="template-grid">
+          <ScrollArea className="flex-1 overflow-auto pr-4" data-testid="template-grid">
             {templatesLoading ? (
               <div className="flex items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
