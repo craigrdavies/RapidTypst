@@ -460,7 +460,7 @@ If Rapid Typst saves you time, consider buying me a coffee!
 </a>
 <p style="text-align: center">
 <strong>Other ways to support:</strong>
-<br />
+<br /></p>
 <div align="center">
 <table style="border: none">
 <tr style="border: none"><td style="border:none; text-align: left">⭐ Star this repository</td></tr>
@@ -469,7 +469,7 @@ If Rapid Typst saves you time, consider buying me a coffee!
 <tr><td>📢 Share with others</td></tr>
 </table>
 </div>
-</p>
+
 </div>
 
 ## 📄 License
