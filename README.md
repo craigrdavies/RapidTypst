@@ -462,7 +462,7 @@ If Rapid Typst saves you time, consider buying me a coffee!
 <strong>Other ways to support:</strong>
 <br />
 <center>
-<table style="border: none">
+<table style="border: none; margin-left: auto; margin-right:auto;">
 <tr style="border: none"><td style="border:none; text-align: left">⭐ Star this repository</td></tr>
 <tr><td>🐛 Report bugs</td></tr>
 <tr><td>💡 Suggest features</td></tr>
