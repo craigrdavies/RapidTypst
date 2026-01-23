@@ -459,13 +459,11 @@ If Rapid Typst saves you time, consider buying me a coffee!
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60">
 </a>
 <p style="text-align: center">
-**Other ways to support:**
-<ul>
-<li>⭐ Star this repository</li>
-<li>🐛 Report bugs</li>
-<li>💡 Suggest features</li>
-<li>📢 Share with others</li>
-</ul>
+<strong>Other ways to support:</strong>
+⭐ Star this repository
+🐛 Report bugs
+💡 Suggest features
+📢 Share with others
 </p>
 </div>
 
