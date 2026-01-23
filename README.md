@@ -460,10 +460,11 @@ If Rapid Typst saves you time, consider buying me a coffee!
 </a>
 <p style="text-align: center">
 <strong>Other ways to support:</strong>
-⭐ Star this repository
-🐛 Report bugs
-💡 Suggest features
-📢 Share with others
+<br />
+*  ⭐ Star this repository<br />
+*  🐛 Report bugs<br />
+*  💡 Suggest features<br />
+*  📢 Share with others<br />
 </p>
 </div>
 
